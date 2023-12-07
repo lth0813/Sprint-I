@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from 'react'
-
-const User = {
-  email: 'test@example.com',
-  pw: 'test2323@@@'
-}
-
+import axios from 'axios';
 
 export default function Login() {
+
+  const Getdata = () => {
+    
+    const [data, setData] = useState([]);
+  
+    useEffect(() => {
+        axios.get('http://localhost') 
+            .then(response => {
+                setData(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }, [onDataFetched]);
+  }
+
     const [email, setEmail] = useState('');
     const [pw, setPw] = useState('');
 
@@ -43,12 +54,14 @@ export default function Login() {
       }
     };
     const onClickConfirmButton = () => {
-      if(email === User.email && pw === User.pw) {
-        alert('로그인에 성공했습니다.')
+      const user = data.find(u => u.email === email && u.pw === pw);
+    
+      if (user) {
+        alert('로그인에 성공했습니다.');
       } else {
-        alert("등록되지 않은 회원입니다.");
+        alert('등록되지 않은 회원입니다.');
       }
-    }
+    };
 
     return (
       <div className="page">
@@ -67,6 +80,7 @@ export default function Login() {
               className="input"
               type="text"
               placeholder="test@gmail.com"
+              name="email"
               value={email}
               onChange={handleEmail}
             />
@@ -84,6 +98,7 @@ export default function Login() {
             <input
               className="input"
               type="password"
+              name="password"
               placeholder="영문, 숫자, 특수문자 포함 8자 이상"
               value={pw}
               onChange={handlePw}
