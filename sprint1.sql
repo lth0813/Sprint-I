@@ -260,6 +260,7 @@ CREATE TABLE IF NOT EXISTS `review` (
   `id` varchar(20) NOT NULL,
   `seq` int NOT NULL,
   `content` text NOT NULL,
+  `date` DATE NOT NULL,
   PRIMARY KEY (`review_seq`),
   KEY `fk_review_id` (`id`),
   KEY `fk_review_seq` (`seq`),

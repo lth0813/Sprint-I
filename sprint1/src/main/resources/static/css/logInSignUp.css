@@ -200,3 +200,14 @@ span{
     text-decoration: none;
     margin-left: 2vh;
 }
+
+.w-btn-indigo {
+    background-color: #3F51B5;
+    color: #ffffff;
+}
+
+.w-btn-indigo[disabled] {
+    background-color: rgba(63, 81, 181, 0.5);
+    color: #cccccc;
+    cursor: not-allowed;
+}
