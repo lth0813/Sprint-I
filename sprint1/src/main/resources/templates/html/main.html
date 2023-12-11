@@ -300,24 +300,25 @@
                         </ul>
                     </form>
                 </div>
+                <button id="choiceButton" type="submit">검색</button>
             </div>
             <div id="result"> <!-- result -->
                 <div id="resultTitle">
                     <p>검색 결과&nbsp;</p>
                     <p>&#40;&nbsp;</p>
-                    <p>0&nbsp;</p>
-                    <p>, 낮은 가격순 &#41;</p>
+                    <p>[[${tire.size()}]]&nbsp;</p>
+                    <p>&nbsp;&#41;</p>
                 </div>
                 <div id="resultTable">
                     <table>
-                        <div th:each="">
+                        <div th:each="tire : ${tire}">
                             <tr>
-                                <td th:text=""></td>
+                                <td><img th:src="${tire.product_image}"></td>
                                 <div id="goodsTd">
-                                    <td th:text=""></td>
-                                    <td th:text=""></td>
+                                    <td th:text="${tire.product_name}"></td>
+                                    <td th:text="${tire.product_spec}"></td>
                                 </div>
-                                <td th:text=""></td>
+                                <td th:text="${tire.product_price}"></td>
                             </tr>
                         </div>
                     </table>

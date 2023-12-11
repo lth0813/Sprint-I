@@ -213,6 +213,7 @@ main {
     flex-direction: column;
     border: 1px solid gray;
     margin: 0 5vh 0 0;
+    justify-content: center;
 }
 #choiceTitle {
     width: 100%;
@@ -510,6 +511,10 @@ main {
 #inchCheck2 > li > input[type=checkbox] {
     zoom: 0.8;
 }
+#choiceButton {
+    width: 10%;
+}
+
 /* result */
 #result {
     width: 55%;
@@ -533,6 +538,13 @@ main {
 }
 #resultTitle > p:nth-child(3) {
     font-weight: bold;
+}
+#resultTable > table {
+    color: lightgray;
+}
+#resultTable img {
+    width:150px;
+    height:150px;
 }
 
 /* footer */
