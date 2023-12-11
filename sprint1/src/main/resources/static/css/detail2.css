@@ -216,7 +216,19 @@ footer {
 .main-header {
     width:100%;
     display:flex;
+    flex-direction: column;
     justify-content: space-evenly;
+    margin-top:20px;
+}
+.product_name {
+    font-weight: bold;
+    font-size: 30px;
+}
+.product_spec {
+    font-size: 15px;
+    color:dimgray;
+    margin-top:5px;
+    margin-bottom:20px;
 }
 .main {
     display:flex;
@@ -225,24 +237,32 @@ footer {
 }
 .main-content {
     display:flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-evenly;
 }
 .main-content-image {
-    width:20%;
     display:flex;
     justify-content: center;
     align-items: center;
 }
 .main-content-image img {
-    width:130px;
-    height:130px;
+    width:350px;
+    height:350px;
 }
-.main-content-product {
-    width:60%;
+.main-content-price {
+    display:flex;
+    height:350px;
+    justify-content: space-evenly;
 }
-.main-content-buy {
-    width:20%;
+.pricemsg {
+    font-size: 25px;
+    font-weight: bold;
+    margin-right:100px;
+}
+.product_price {
+    font-size: 25px;
+    font-weight: bold;
+    color:royalblue;
 }
 .main-content-buy-qty {
     display:flex;

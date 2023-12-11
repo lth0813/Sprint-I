@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EV TIRE MALL</title>
-    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/detail2.css">
     <link rel="icon" href="./img/favicon.jpg" type="image/x-icon">
 </head>
 <body>
@@ -49,29 +49,29 @@
     
     <main>
         <div class="main-wrapper">
-            <div class="main-header">
-                <div>제품찾기</div>
-                <div>장바구니</div>
-                <div>마이페이지</div>
-            </div>
             <div class="main">
+                <div class="main-header">
+                    <div class="product_name">[[${product.product_name}]]</div>
+                    <div class="product_spec">[[${product.product_spec}]]</div>
+                </div>
                 <div class="main-content">
                     <div class="main-content-image"><img th:src="${product.product_image}"></div>
-                    <div class="main-content-product">
-                        <div>[[${product.product_name}]]</div>
-                        <div>[[${product.product_spec}]]</div>
+                    <div class="main-content-price">
+                        <div class="pricemsg">가격 : </div>
                         <div class="product_price">[[${product.product_price}]]</div>
-                    </div>
-                    <div class="main-content-buy">
-                        <div class="main-content-buy-qty">
-                            <div>수량</div>
-                            <div class="select-qty">
-                                <button type="button" class="qtyminus">-</button>
-                                <div class="qty">0</div>
-                                <button type="button" class="qtyplus">+</button>
+                        <div class="main-content-buy">
+                            <div class="main-content-buy-qty">
+                                <div>수량</div>
+                                <div class="select-qty">
+                                    <button type="button" class="qtyminus">-</button>
+                                    <div class="qty">0</div>
+                                    <button type="button" class="qtyplus">+</button>
+                                </div>
                             </div>
+                            <div class="totalprice">총상품금액 <span class="price">0</span>원</div>
                         </div>
-                        <div class="totalprice">총상품금액 <span class="price">0</span>원</div>
+                    </div>
+                    <div class="main-content-purchase">
                         <div class="cart">장바구니</div>
                         <div class="purchase">구매하기</div>
                     </div>
