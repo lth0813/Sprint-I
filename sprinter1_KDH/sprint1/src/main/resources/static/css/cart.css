@@ -1,0 +1,338 @@
+* {
+    /* border: 1px solid white; */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 100%;
+    height: fit-content;
+    padding-top: 12vh;
+    background-color: black; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* header */
+header {
+    display: flex;
+    width: 100%;
+    height: 12vh;
+    position: fixed;
+    top: 0;
+	z-index: 100;
+    background-color: black;
+}
+
+#logoSearch {
+    display: flex;
+    width: 60%;
+    height: 100%;
+}
+
+#logo {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+#logo > img {
+    width: 41%;
+    height: 25%;
+    cursor: pointer;
+}
+
+#search {
+    display: flex;
+    align-items: center;
+    width: 55%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0 0 0 2%;
+}
+#search > form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    height: 30%;
+    border: 2px solid gray;
+    padding: 0 2%;
+    border-radius: 100px;
+}
+#search > form > input {
+    width: 90%;
+    height: 70%;
+    font-size: medium;
+    border: 0;
+    padding: 0 2% 0 0;
+    background-color: black;
+    color: lightgray;
+}
+#search > form > input:focus {
+    outline: none;
+}
+#search > form > input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+#search > form > button {
+    width: 5%;
+    height: 70%;
+    border: 0;
+    border: 0;
+    background-color: black;
+    cursor: pointer;
+}
+#search > form > button > svg {
+    width: 100%;
+    height: 100%;
+    color: lightgray;
+}
+
+#user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 100%;
+    padding: 0 1%;
+}
+#user > * {
+    margin: 1%;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+#login > * {
+    margin: 1% 0 0 0; 
+}
+#login > svg {
+    width: 1.5vw;
+    height: 2vh;
+    color: gray;
+}
+#login > p {
+    width: max-content;
+    height: max-content;
+    font-size: small;
+    color: gray;
+}
+
+#cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+#cart > * {
+    margin: 1% 0 0 0;
+}
+#cart > svg {
+    width: 1.5vw;
+    height: 2vh;
+    color: gray;
+}
+#cart > p {
+    width: max-content;
+    height: max-content;
+    font-size: small;
+    color: gray;
+}
+
+#mypage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+#mypage > * {
+    margin: 1% 0 0 0;
+}
+#mypage > svg {
+    width: 1.5vw;
+    height: 2vh;
+    color: gray;
+}
+#mypage > p {
+    width: max-content;
+    height: max-content;
+    font-size: small;
+    color: gray;
+}
+
+/* main */
+main {
+    width: 100%;
+    
+}
+
+#cartSection {
+    width: 100%;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartInformation{
+    width: 99vh;
+    font-size: 2vh;
+    font-weight: 700;
+    color: lightgray;
+    background-color: black;
+    margin-bottom: 1vh;
+}
+
+table {
+    border-bottom: solid 0.5vh gray;
+    width: 100vh;
+    font-size: 2vh;
+  }
+
+#tablehead{
+    background-color: gray;
+    color: white;
+    text-align: center;
+}
+
+td{
+    border-top: 0.1vh solid gray;
+}
+
+
+
+.productdetail{
+    width: 50vh;
+}
+
+.productimage{
+    width: 15vh;
+}
+
+.productname{
+    width: 30vh;
+}
+
+.productname > a{
+    text-decoration-line: none;
+    color: darkgrey ;
+}
+
+img{
+    width: 15vh;
+    height: 15vh;
+    margin: 0;
+}
+
+.unit_price{
+    width: 10vh;
+    text-align: center;
+    border-left: 0.1vh solid gray;
+}
+
+.count{
+    width: 8vh;
+    border-left: 0.1vh solid gray;
+    text-align: center;
+}
+
+.price{
+    width: 15vh;
+    border-left: 0.1vh solid gray;
+    text-align: center;
+}
+.delete{
+    border-left: 0.1vh solid gray;
+    text-align: center;
+}
+
+
+/* footer */
+footer {
+    width: 100%;
+    height: fit-content;
+    color: gray;
+    display: flex;
+    padding: 1% 5vh;
+    box-sizing: border-box;
+    align-items: center;
+    border-top: 1px solid rgb(30, 30, 30);
+}
+/* introduce */
+#introduce {
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+}
+#introduce > * {
+    margin: 0.5% 0;
+}
+/* help */
+#help {
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+#help > * {
+    margin: 0.3% 0;
+}
+#help > p:nth-child(1) {
+    font-size: x-large ;
+}
+
+.deleteBtn {
+    appearance: none;
+    border: none;
+    padding: 1vh 1.5vh;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: gray;
+    color: white;
+}
+
+.cartBigorderbtn {
+    margin: 3vh 0vh 3vh 0vh;
+    font-size: 3vh;
+    width: 30vh;
+    height: 5vh;
+    appearance: none;
+    border: none;
+    border-radius: 1vh;
+    /* box-shadow: 0 0.1vh 1vh rgba(255, 255, 255, 0.643); */
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: gray;
+    color: white;
+}
+
+.deleteBtn:hover, .cartBigorderbtn {
+
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.delete:active, .cartBigorderbtn {
+
+    transform: scale(1.1);
+    cursor: pointer;
+}
