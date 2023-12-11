@@ -162,4 +162,9 @@ public class LoginController {
     public String cart() {
         return "/html/cart";
     }
+            @GetMapping("/review")
+    public String review() {
+        return "/html/review";
+    }
+
 }

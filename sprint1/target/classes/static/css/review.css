@@ -185,7 +185,7 @@ main {
     
 }
 
-#cartSection {
+#reviewSection {
     width: 100%;
     color: gray;
     display: flex;
@@ -194,7 +194,7 @@ main {
     justify-content: center;
 }
 
-.cartpart{
+.reviewpart{
     width: 99vh;
     font-size: 3vh;
     font-weight: 700;
@@ -203,43 +203,29 @@ main {
     margin-bottom: 1vh;
 }
 
-.cartInformation{
-    width: 99vh;
-    font-size: 2vh;
-    font-weight: 700;
-    color: lightgray;
-    background-color: black;
-    margin-bottom: 1vh;
-}
 
 table {
-    border-bottom: solid 0.5vh gray;
+    display: flex;
+    flex-direction: column;
+    border: solid 0.5vh gray;
     width: 100vh;
     font-size: 2vh;
   }
 
-#tablehead{
-    background-color: gray;
+#reviewproduct{
     color: white;
     text-align: center;
 }
 
-td{
-    border-top: 0.1vh solid gray;
-}
-
-
-
-.productdetail{
-    width: 50vh;
-}
-
 .productimage{
-    width: 15vh;
+    width: 20vh;
+    height: 20vh;
+    border: 0.1vh solid whitesmoke;
 }
-
 .productname{
-    width: 30vh;
+    width: 80vh;
+    padding-left: 1vh;
+    text-align: left;
 }
 
 .productname > a{
@@ -247,34 +233,17 @@ td{
     color: darkgrey ;
 }
 
-img{
-    width: 15vh;
-    height: 15vh;
-    margin: 0;
+.content{
+    border-top: 0.5vh solid gray;
 }
 
-.unit_price{
-    width: 10vh;
-    text-align: center;
-    border-left: 0.1vh solid gray;
+input{
+    height: 20vh;
+    width: 99vh;
+    font-size: 2vh;
+    background-color: black;
+    color: white;
 }
-
-.count{
-    width: 8vh;
-    border-left: 0.1vh solid gray;
-    text-align: center;
-}
-
-.price{
-    width: 15vh;
-    border-left: 0.1vh solid gray;
-    text-align: center;
-}
-.delete{
-    border-left: 0.1vh solid gray;
-    text-align: center;
-}
-
 
 /* footer */
 footer {
@@ -316,26 +285,8 @@ footer {
     font-size: x-large ;
 }
 
-
-/*주문하기 버튼*/
-.deleteBtn {
-    appearance: none;
-    border: none;
-    padding: 1vh 1.5vh;
-    border-radius: 15px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-    background-color: gray;
-    color: white;
-}
-.orderBtns{
-    display: flex;
-    justify-content: center;
-}
-
-.cartBigorderbtn {
-
+/*리뷰등록 버튼*/
+.reviewResisterBtn {
     margin: 3vh 0vh 3vh 0vh;
     font-size: 3vh;
     width: 30vh;
@@ -345,20 +296,18 @@ footer {
     border-radius: 1vh;
     /* box-shadow: 0 0.1vh 1vh rgba(255, 255, 255, 0.643); */
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 540;
     transition: 0.25s;
     background-color: gray;
     color: white;
 }
 
-.deleteBtn:hover, .cartBigorderbtn:hover {
-
+.deleteBtn:hover, .reviewResisterBtn:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.delete:active, .cartBigorderbtn:active {
-
+.delete:active, .reviewResisterBtn:active {
     transform: scale(1.1);
     cursor: pointer;
 }

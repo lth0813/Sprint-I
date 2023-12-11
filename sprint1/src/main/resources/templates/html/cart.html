@@ -25,12 +25,16 @@
             </div>
         </section>
         <section id="user"> <!-- user -->
-            <div id="login">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
-                    <path d="M7.5 1v7h1V1h-1z"/>
-                    <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+            <div id="welcome">
+                <p>조가영</p>
+                <p>&nbsp;님</p>
+            </div>
+            <div id="logout">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                 </svg>
-                <p>로그인</p>
+                <p>로그아웃</p>
             </div>
             <div id="cart">
                 <svg id="cart" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
@@ -49,6 +53,7 @@
     
     <main> <!-- main -->
         <section id="cartSection"> <!-- cart 장바구니 -->
+            <div class="cartpart">장바구니</div><!-- 페이지 제목 -->
             <div class="cartInformation">
                 총 8건의 내역이 있습니다. <!-- cart DB의 갯수 부탁드립니다. -->
             </div>
@@ -63,17 +68,17 @@
                     </tr>
                     <tr class="cartListDetail"> <!--장바구니 표의 리스트-->
                         <td class="productimage"><img src="image/keyboard.jpg"></td> <!--상품이미지를 db에서 불러와 주세요-->
-                        <td class="productname"><a href="#">상품명입니다.</a></td><!--상품 상세페이지로 anchor부탁드립니다.-->
+                        <td class="productname"><a href="#">상품명입니다.</a></td><!--상품명을 db에서 불러와 주세요, 상품 상세페이지로 anchor부탁드립니다.-->
                         <td class="unit_price">100,000</td><!--상품단가을 db에서 불러와 주세요-->
                         <td class="count">1</td><!--상품수량을 db에서 불러와 주세요-->
                         <td class="price">100,000</td><!--상품단가*상품수량을 값을 입력해주세요-->
-                        <td class="delete"><button class="deleteBtn">삭제하기</button></td><!--해당 버튼을 누르면 DB에서 내역 삭제를 부탁드립니다.-->
+                        <td class="delete"><button type="submit" class="deleteBtn">삭제하기</button></td><!--해당 버튼을 누르면 DB에서 내역 삭제를 부탁드립니다.-->
                     </tr>
                 </table>
+                <div class="orderBtns">
+                    <button class="cartBigorderbtn">주문하기</button>
+                </div>
             </form>
-            <div class="orderBtns">
-                <button class="cartBigorderbtn">주문하기</button>
-            </div>
         </section>
     </main>
 

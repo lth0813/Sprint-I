@@ -8,11 +8,7 @@ body {
     max-width: 100%;
     height: fit-content;
     padding-top: 12vh;
-    background-color: black; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background-color: black;
 }
 
 /* header */
@@ -104,7 +100,18 @@ header {
     margin: 1%;
 }
 
-#login {
+#welcome {
+    color: gray;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    font-size: small;
+}
+#welcome > p:nth-child(1) {
+    font-weight: bold;
+}
+
+#logout {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,15 +119,15 @@ header {
     height: fit-content;
     cursor: pointer;
 }
-#login > * {
+#logout > * {
     margin: 1% 0 0 0; 
 }
-#login > svg {
+#logout > svg {
     width: 1.5vw;
     height: 2vh;
     color: gray;
 }
-#login > p {
+#logout > p {
     width: max-content;
     height: max-content;
     font-size: small;
@@ -172,7 +179,6 @@ header {
     font-size: small;
     color: gray;
 }
-
 /* main */
 main {
     width: 100%;
@@ -186,6 +192,15 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.cartpart{
+    width: 99vh;
+    font-size: 3vh;
+    font-weight: 700;
+    color: lightgray;
+    background-color: black;
+    margin-bottom: 1vh;
 }
 
 .cartInformation{
@@ -263,32 +278,34 @@ img{
 
 /* footer */
 footer {
-    width: 100vh;
+    width: 100%;
     height: fit-content;
     color: gray;
-    display: flex;
     padding: 1% 5vh;
     box-sizing: border-box;
     align-items: center;
     border-top: 1px solid rgb(30, 30, 30);
+    display: flex;
 }
 /* introduce */
 #introduce {
-    width: 50%;
+    width: 50vh;
     height: fit-content;
     display: flex;
     flex-direction: column;
+    align-items: center;
     font-size: small;
 }
 #introduce > * {
-    margin: 0.5% 0;
+    margin: 0.5vh 0;
 }
 /* help */
 #help {
-    width: 50%;
+    width: 50vh;
     height: fit-content;
     display: flex;
     flex-direction: column;
+    align-items: center;
     
 
 }
@@ -299,6 +316,8 @@ footer {
     font-size: x-large ;
 }
 
+
+/*주문하기 버튼*/
 .deleteBtn {
     appearance: none;
     border: none;
@@ -310,8 +329,13 @@ footer {
     background-color: gray;
     color: white;
 }
+.orderBtns{
+    display: flex;
+    justify-content: center;
+}
 
 .cartBigorderbtn {
+
     margin: 3vh 0vh 3vh 0vh;
     font-size: 3vh;
     width: 30vh;
@@ -327,13 +351,13 @@ footer {
     color: white;
 }
 
-.deleteBtn:hover, .cartBigorderbtn {
+.deleteBtn:hover, .cartBigorderbtn:hover {
 
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.delete:active, .cartBigorderbtn {
+.delete:active, .cartBigorderbtn:active {
 
     transform: scale(1.1);
     cursor: pointer;
