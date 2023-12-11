@@ -1,5 +1,6 @@
 package com.example.sprint1.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -146,5 +147,19 @@ public class LoginController {
     ){
         model.addAttribute("pw", pw);
         return "/html/findpwo";
+    }
+    
+    @GetMapping("/main")
+    public String Main(
+        Model model
+    ) {
+        List<Map<String,Object>> tire = sprintDao.selectAll();
+        model.addAttribute("tire", tire);
+        return "/html/main";
+    }
+
+        @GetMapping("/cart")
+    public String cart() {
+        return "/html/cart";
     }
 }

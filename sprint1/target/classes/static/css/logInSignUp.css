@@ -91,7 +91,7 @@ input {
     line-height: 22px;
     letter-spacing: 0.5px;
     outline: none;
-    color: #00CB76;
+    color: darkgrey;
     background-color: white;
     border: none;
     -webkit-transition: all 200ms linear;
@@ -117,6 +117,9 @@ input:active {
     font-size: 2.5vh;
 }
 
+
+
+
 button{
     margin-top: 2vh;
     height: 8vh;
@@ -126,6 +129,13 @@ button{
     flex-direction: column;
     justify-content: center;
     font-size: 3vh;
+}
+
+#idcheck{
+    margin-left: 2vh;
+    width: 15vh;
+    height: 6vh;
+    font-size: 2vh;
 }
 
 .w-btn {
@@ -140,7 +150,7 @@ button{
 
 .w-btn-indigo {
     background-color: #0F222D;
-    color: #BFE85F;
+    color: white;
 }
 
 
@@ -210,5 +220,23 @@ span{
 #idUnavailable, #idAvailable{
     font-size: 2vh;
     font-weight: 600;
-    color: #BFE85F;
+    color: white;
+}
+
+#idInput{
+    width: 43vh;
+}
+
+#wrapper-idckeck{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.w-btn-indigo[disabled] {
+    background-color: #0f222db8;
+    color: darkgrey;
+    cursor: not-allowed;
 }
