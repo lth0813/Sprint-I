@@ -64,6 +64,11 @@ public class SprintDao {
         String sqlStmt = String.format("UPDATE review SET content='%s', date=NOW() WHERE review_seq = %s",content, review_seq);
         jt.execute(sqlStmt);
     }
+    // 상품에 달린 리뷰 확인
+    public List<Map<String,Object>> Review(String seq) {
+        String sqlStmt = String.format("SELECT * FROM review WHERE seq = %s",seq);
+        return jt.queryForList(sqlStmt);
+    }
     // 상품에 달린 리뷰 개수 확인
     public List<Map<String,Object>> countReview(String seq) {
         String sqlStmt = String.format("SELECT COUNT(*) cnt FROM review WHERE seq = %s",seq);
@@ -130,6 +135,11 @@ public class SprintDao {
     // 전체 상품 조회
     public List<Map<String,Object>> selectAll() {
         String sqlStmt = "SELECT * FROM tire_list";
+        return jt.queryForList(sqlStmt);
+    }
+    // 단일 상품 조회
+    public List<Map<String,Object>> selectProduct(String seq) {
+        String sqlStmt = String.format("SELECT * FROM tire_list WHERE seq = '%s'", seq);
         return jt.queryForList(sqlStmt);
     }
 

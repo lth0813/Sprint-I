@@ -157,4 +157,18 @@ public class LoginController {
         model.addAttribute("tire", tire);
         return "/html/main";
     }
+
+    @GetMapping("/detail")
+    public String Detail(@RequestParam("seq") String seq, Model model) {
+        Map<String,Object> product = sprintDao.selectProduct(seq).get(0);
+        int cnt = Integer.parseInt(sprintDao.countReview(seq).get(0).get("cnt").toString());
+        List<Map<String,Object>> review = sprintDao.Review(seq);
+        String company = product.get("product_name").toString().split(" ")[0];
+        model.addAttribute("product", product);
+        model.addAttribute("cnt", cnt);
+        model.addAttribute("review", review);
+        model.addAttribute("company", company);
+        return "/html/detail";
+    }
+   
 }

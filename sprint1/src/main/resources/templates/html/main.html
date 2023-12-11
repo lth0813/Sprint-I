@@ -91,23 +91,23 @@
                     <form action="" method="">
                         <ul id="manufactureCheck">
                             <li>
-                                <input type="checkbox" name="" value="">
+                                <input type="checkbox" name="" value="" class="hankook">
                                 한국타이어
                             </li>
                             <li>
-                                <input type="checkbox" name="" value="">    
+                                <input type="checkbox" name="" value="" class="kumho">    
                                 금호타이어
                             </li>
                             <li>
-                                <input type="checkbox" name="" value="">
+                                <input type="checkbox" name="" value="" class="nexen">
                                 넥센타이어
                             </li>
                             <li>
-                                <input type="checkbox" name="" value="">
+                                <input type="checkbox" name="" value="" class="michelin">
                                 미쉐린타이어
                             </li>
                             <li>
-                                <input type="checkbox" name="" value="">
+                                <input type="checkbox" name="" value="" class="continental">
                                 콘티넨탈타이어
                             </li>
                         </ul>
@@ -120,7 +120,7 @@
                     <form action="" method="">
                         <ul id="carCheck">
                             <li>
-                                <input type="checkbox" name="" value="">
+                                <input type="checkbox" name="" value="" class="pcar">
                                 승용차용
                             </li>
                             <li>
@@ -300,26 +300,23 @@
                         </ul>
                     </form>
                 </div>
+                <button id="choiceButton" type="submit">검색</button>
             </div>
             <div id="result"> <!-- result -->
                 <div id="resultTitle">
                     <p>검색 결과&nbsp;</p>
                     <p>&#40;&nbsp;</p>
-                    <p>0&nbsp;</p>
-                    <p>, 낮은 가격순 &#41;</p>
+                    <p>[[${tire.size()}]]&nbsp;</p>
+                    <p>&nbsp;&#41;</p>
                 </div>
                 <div id="resultTable">
-                    <table>
-                        <div th:each="">
-                            <tr>
-                                <td th:text=""></td>
-                                <div id="goodsTd">
-                                    <td th:text=""></td>
-                                    <td th:text=""></td>
-                                </div>
-                                <td th:text=""></td>
-                            </tr>
-                        </div>
+                    <table th:each="tire : ${tire}" class="tire_list">
+                        <tr>
+                            <td><img th:src="${tire.product_image}"></td>
+                            <td th:text="${tire.product_name}" class="tire_name"></td>
+                            <td th:text="${tire.product_spec}" class="tire_spec"></td>
+                            <td th:text="${tire.product_price}"></td>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -342,3 +339,109 @@
     <script src="./js/main.js"></script>
 </body>
 </html>
+<script>
+    var checkboxes = document.querySelectorAll('#manufactureCheck input[type="checkbox"]');
+    var carcheckboxes = document.querySelectorAll('#carCheck input[type="checkbox"]');
+    var tire_list = document.querySelectorAll('.tire_list');
+    var tire_name = document.querySelectorAll('.tire_name');
+    var tire_spec = document.querySelectorAll('.tire_spec');
+
+//     checkboxes.forEach(function(checkbox) {
+//     checkbox.addEventListener('change', function() {
+//         if (checkbox.classList.contains('hankook') && checkbox.checked) {
+//             console.log('한국타이어가 체크되었습니다!');
+//             for (lists of tire_list) {
+//                 lists.style.display = "none";
+//                 for (names of tire_name) {
+//                     if (names.innerHTML.includes("한국타이어")) {
+//                         names.parentNode.parentNode.parentNode.style.display = "flex";
+//                     }
+//                 }
+//             }
+//             }
+//         });
+//     });
+//     checkboxes.forEach(function(checkbox) {
+//     checkbox.addEventListener('change', function() {
+//         if (checkbox.classList.contains('hankook') && !checkbox.checked) {
+//             console.log('한국타이어가 체크해제되었습니다!');
+//             for (lists of tire_list) {
+//                 lists.style.display = "flex";}
+//         }
+//     });
+// });
+// //
+//     carcheckboxes.forEach(function(checkbox) {
+//         checkbox.addEventListener('change', function() {
+//             if (checkbox.classList.contains('pcar') && checkbox.checked) {
+//                 console.log('승용차용이 체크되었습니다!');
+//                 for (lists of tire_list) {
+//                     lists.style.display = "none";
+//                     for (specs of tire_spec) {
+//                         if (specs.innerHTML.includes("승용차용")) {
+//                             specs.parentNode.parentNode.parentNode.style.display = "flex";
+//                         }
+//                     }
+//                 }
+//                 }
+//             });
+//         });
+//     carcheckboxes.forEach(function(checkbox) {
+//         checkbox.addEventListener('change', function() {
+//             if (checkbox.classList.contains('pcar') && !checkbox.checked) {
+//                 console.log('승용차용이 체크해제되었습니다!');
+//                 for (lists of tire_list) {
+//                     lists.style.display = "flex";}
+//             }
+//         });
+//     });
+    
+//
+function filterTires() {
+        // 선택된 제조사와 차종을 저장할 배열
+        var selectedManufacturers = Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.classList[0]);
+        var selectedCarTypes = Array.from(carcheckboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.classList[0]);
+
+        // 필터링된 목록을 담을 배열
+        var filteredTireList = [];
+
+        // 필터링 작업
+        for (var i = 0; i < tire_list.length; i++) {
+            var manufacturer = tire_name[i].classList[0];
+            var carType = tire_spec[i].classList[0];
+
+            if (
+                (selectedManufacturers.length === 0 || selectedManufacturers.includes(manufacturer)) &&
+                (selectedCarTypes.length === 0 || selectedCarTypes.includes(carType))
+            ) {
+                // 제조사와 차종이 선택된 경우 또는 모든 체크박스가 선택되지 않은 경우
+                // 해당 타이어의 tire_list 요소를 화면에 표시
+                tire_list[i].style.display = "flex";
+
+                // 필터링된 결과를 배열에 추가
+                filteredTireList.push({
+                    name: tire_name[i].innerText,
+                    spec: tire_spec[i].innerText
+                });
+            } else {
+                // 그 외의 경우 해당 타이어를 숨김
+                tire_list[i].style.display = "none";
+            }
+        }
+
+        // 필터링된 타이어 목록을 화면에 표시
+        filteredTireList.forEach(function (tire) {
+            console.log('Filtered Tire Name:', tire.name);
+            console.log('Filtered Tire Spec:', tire.spec);
+        });
+    }
+
+    // 체크박스 변경 이벤트에 대한 리스너 등록
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', filterTires);
+    });
+
+    carcheckboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', filterTires);
+    });
+</script>
