@@ -55,10 +55,10 @@
         <section id="mypageSection"> <!-- 마이페이지 섹션 리스트 묶음 -->
             <div class="mypagepart">
                 <div class="pagetitle">마이페이지</div><!-- 페이지 제목 -->
-               <!-- <a href="#modify" class="scroll_move">회원정보수정</a> modify -->
-               <!-- <a href="#myorder" class="scroll_move">구매내역조회</a><!-- myorder-->
-               <!-- <a href="#myreview" class="scroll_move">내가 쓴 리뷰</a><!-- myreview-->
-               <!-- <a href="#mysearch" class="scroll_move">제품검색내역</a><!-- mysearch-->
+                <a href="#modify" class="scroll_move">회원정보수정</a> <!--modify -->
+                <a href="#myorder" class="scroll_move">구매내역조회</a><!-- myorder-->
+                <a href="#myreview" class="scroll_move">내가 쓴 리뷰</a><!-- myreview-->
+                <a href="#mysearch" class="scroll_move">제품검색내역</a><!-- mysearch-->
             </div> 
             <div class="mypagelist">
                 <div class="section" id="modify">
@@ -70,7 +70,7 @@
                             <input type="text" name="name"  placeholder="  Your full Name"  autocomplete="off">
                             <input type="text" name="phonenum"  placeholder="  Your Phone Number"  autocomplete="off">
                             <input type="text" name="email"  placeholder="  Your e-mail"  autocomplete="off">
-                            <button class="w-btn w-btn-indigo" type="submit" id="modifyButton">수정</button>
+                            <button class="w-btn w-btn-indigo" type="submit" id="modifyButton" onclick="javascript:modifybtn()">수정</button>
                         </form>
                     </div>
                 </div> 
@@ -107,7 +107,7 @@
                             <th class="orderdetail" colspan="2">상품정보</td> 
                             <th class="orderdate">주문일자</td>
                             <th class="price">리뷰 내용</td>
-                            <th class="insert">리뷰 삭제</td>
+                            <th class="insert" >리뷰 삭제</td>
                         </tr>
                                 <!-- DB가 없는 경우 -->
                                 <tr class="orderListDetail"> 
@@ -120,7 +120,7 @@
                             <td class="productname"><a href="#">상품명입니다.</a></td>
                             <td class="orderdate">2023-12-12</td>
                             <td class="reviewcontent">좋습니다.</td>
-                            <td class="insert"><button type="submit" class="insertBtn">삭제</button></td>
+                            <td class="insert"><button type="submit" class="insertBtn" onclick="javascript:deletebtn()">삭제</button></td>
                         </tr>
                     </table>
                 </div> 
@@ -163,6 +163,6 @@
         </div>
     </footer>
 
-    <!--<script src="js/mypage.js"></script>-->
+    <script src="js/mypage.js"></script>
 </body>
 </html>

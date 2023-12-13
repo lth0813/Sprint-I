@@ -212,15 +212,15 @@ main {
     /*background-color: green;*/
     margin-bottom: 3vh;
 }
-/* .scroll_move{
+.scroll_move{
     text-decoration-line: none;
     width: 15vh;
     font-size: 2vh;
     font-weight: 500;
-    color: lightgray; */
+    color: lightgray; 
     /*background-color: yellow;*/
-    /* margin-bottom: 1vh;
-} */
+    margin-bottom: 1vh;
+} 
 
 /*4개 섹션 공통사항*/
 .section{
