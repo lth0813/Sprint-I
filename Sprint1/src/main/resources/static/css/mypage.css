@@ -155,6 +155,12 @@ main {
     align-items: end;
     border-bottom: 0.1vh solid darkgrey;
 }
+.mypagelist {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .pagetitle{
     width: 100vh;
@@ -176,13 +182,12 @@ main {
 
 /*4개 섹션 공통사항*/
 .section{
-    width: 100vh;
+    width: 920px;
     border-bottom: 0.1vh solid darkgrey;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-
 
 .sectiontitle{
     font-size: 3vh;
@@ -190,6 +195,7 @@ main {
     color: lightgray;
     margin: 5vh 0vh 2vh 0vh;
 }
+
 /*회원정보수정*/
 #sectionBox form input {
     display: flex;
@@ -212,6 +218,15 @@ main {
     box-shadow: 0 4px 8px 0 rgba(16, 16, 16, 0.2);
     border: 1px solid #0F222D;
 }
+#modify {
+    width:650px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #595D64;
+    margin-top:30px;
+    border-radius: 20px;
+}
 #sectionBox form input:focus,
 #sectionBox form input:active {
     border: none;
@@ -220,7 +235,6 @@ main {
     border: 2px solid #0F222D;
     font-size: 3vh;
 }
-
 
 #sectionBox form button{
     margin-top: 2vh;
@@ -232,7 +246,6 @@ main {
     justify-content: center;
     font-size: 3vh;
 }
-
 
 .w-btn {
     border: none;
@@ -248,7 +261,6 @@ main {
     background-color: #0F222D;
     color: white;
 }
-
 
 .w-btn:hover {
 
@@ -269,8 +281,6 @@ main {
 #modifyButton{
     margin-bottom: 5vh;
 }
-
-
 /*구매내역조회*/
 #cartSection {
     width: 100%;
@@ -291,7 +301,7 @@ main {
 }
 
 
-.orderList {
+table {
     border-bottom: solid 0.5vh gray;
     width: 100vh;
     font-size: 2vh;
@@ -304,12 +314,11 @@ main {
     text-align: center;
 }
 
-.orderList tr th {
+td{
     border-top: 0.1vh solid gray;
 }
-.orderListDetail td {
-    border-top: 0.1vh solid gray;
-}
+
+
 
 .orderdetail{
     width: 50vh;
@@ -319,7 +328,6 @@ main {
     font-size: 2.5vh;
     text-align: center;
     padding: 3vh 0vh 3vh 0vh;
-    border-top: 0.1vh solid gray;
 }
 
 .productimage{
@@ -335,7 +343,7 @@ main {
     color: darkgrey ;
 }
 
-.img{
+img{
     width: 15vh;
     height: 15vh;
     margin: 0;
@@ -415,7 +423,7 @@ main {
 }
 
 
-.reviewList, .mysearchList {
+table {
     border-bottom: solid 0.5vh gray;
     width: 100vh;
     font-size: 2vh;
@@ -428,9 +436,11 @@ main {
     text-align: center;
 }
 
-.reviewList td, #tablehead th {
+td{
     border-top: 0.1vh solid gray;
 }
+
+
 
 .orderdetail{
     width: 50vh;
@@ -455,7 +465,7 @@ main {
     color: darkgrey ;
 }
 
-.img {
+img{
     width: 15vh;
     height: 15vh;
     margin: 0;

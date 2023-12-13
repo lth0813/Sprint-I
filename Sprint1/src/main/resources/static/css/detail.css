@@ -186,6 +186,8 @@ footer {
     display:flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom:50px;
+    margin-top:50px;
 }
 .main-header {
     width:100%;
@@ -199,7 +201,7 @@ footer {
 }
 .main * {
     color:lightgrey;
-    border:lightgrey solid 1px;
+    /* border:lightgrey solid 1px; */
 }
 .main-content {
     display:flex;
@@ -221,6 +223,7 @@ footer {
 }
 .main-content-buy {
     width:20%;
+    margin-left:10px;
 }
 .main-content-buy-qty {
     display:flex;
@@ -253,7 +256,6 @@ table {
     align-items: center;
 }
 td {
-    width:200px;
     text-align: center;
 }
 
@@ -613,4 +615,64 @@ td {
     font-size: small;
     font-weight: bold;
     color: white;
+}
+.totalprice{height:60px;}
+img{width:130px;
+    height:130px;
+    margin-right:10px;}
+.main-content-product{height:130px;
+                      width:720px;}
+#details{box-sizing: border-box;
+         border-collapse: collapse;}
+.main-spec-list td{border:solid 1px lightgrey;}
+.main-spec-list tr{border:solid 1px lightgrey;}      
+.product_spec{height:72px;
+              padding-top:10px;
+              justify-content: center;
+              display: flex;}
+#design{background-color:grey;
+        font-weight: bold;}
+#design1{background-color:grey;}
+button{background-color:grey;
+       color:white;}
+#reviewdate{text-align: right;}
+h3{color:lightgrey;
+   text-align: center;}
+.product_price{font-size:18px;}
+.product_name{font-size:20px;
+              font-weight: bold;}
+.main-spec{margin-top:40px;}
+#review{margin-top:30px;}
+.main-content-buy{border:solid 1px lightgrey;}
+h2{color:lightgrey;
+   margin-bottom:30px;}
+.cart{border-top:solid 1px lightgrey;
+      width:210px;}
+.purchase{border-top:solid 1px lightgrey;
+          width:210px;}
+.totalprice{border-top:solid 1px lightgrey;}
+#goodsreview{font-size:18px;
+             font-weight: bold;}
+#goodsdetail{font-size:18px;
+             font-weight:bold;}
+#details tr td {
+    width:300px;
+}               
+#details * {
+    padding-top:10px;
+    padding-bottom:10px;
+}
+#details {
+    margin-bottom: 10px;
+} 
+#details1 * {
+    padding-top:10px;
+    padding-bottom:10px;
+    border-collapse: collapse;
+}
+#details1 th {
+    border:solid 1px lightgrey;
+}
+.recommend {
+    width:1200px; 
 }

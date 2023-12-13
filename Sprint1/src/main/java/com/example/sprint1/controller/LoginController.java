@@ -302,7 +302,10 @@ public class LoginController {
     }
 
     @GetMapping("/mypage")
-    public String mypage() {
+    public String mypage(
+        @RequestParam("id") String id,
+        Model model
+    ) {
         return "/html/mypage";
     }
 }
