@@ -288,6 +288,7 @@ footer {
     transition: 0.25s;
     background-color: gray;
     color: white;
+    width:80px;
 }
 .orderBtns{
     display: flex;

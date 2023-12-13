@@ -300,4 +300,9 @@ public class LoginController {
 
         return "/html/searchlist";
     }
+
+    @GetMapping("/mypage")
+    public String mypage() {
+        return "/html/mypage";
+    }
 }

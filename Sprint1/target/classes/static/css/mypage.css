@@ -136,7 +136,142 @@ main {
     width: 100%;
     
 }
+/*섹션창*/
 
+
+/*마이페이지의 4개 섹션*/
+#mypageSection {
+    width: 100%;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mypagepart{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    border-bottom: 0.1vh solid darkgrey;
+}
+
+.pagetitle{
+    width: 100vh;
+    font-size: 3vh;
+    font-weight: 700;
+    color: lightgray;
+    /*background-color: green;*/
+    margin-bottom: 3vh;
+}
+.scroll_move{
+    text-decoration-line: none;
+    width: 15vh;
+    font-size: 2vh;
+    font-weight: 500;
+    color: lightgray; 
+    /*background-color: yellow;*/
+    margin-bottom: 1vh;
+} 
+
+/*4개 섹션 공통사항*/
+.section{
+    width: 100vh;
+    border-bottom: 0.1vh solid darkgrey;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.sectiontitle{
+    font-size: 3vh;
+    font-weight: 700;
+    color: lightgray;
+    margin: 5vh 0vh 2vh 0vh;
+}
+/*회원정보수정*/
+#sectionBox form input {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1.5vh;
+    height: 5.5vh;
+    width: 60vh;
+    font-weight: 700;
+    border-radius: 1vh;
+    font-size: 2vh;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: darkgrey;
+    background-color: white;
+    border: none;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgba(16, 16, 16, 0.2);
+    border: 1px solid #0F222D;
+}
+#sectionBox form input:focus,
+#sectionBox form input:active {
+    border: none;
+    outline: none;
+    box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.765);
+    border: 2px solid #0F222D;
+    font-size: 3vh;
+}
+
+
+#sectionBox form button{
+    margin-top: 2vh;
+    height: 8vh;
+    width: 60vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 3vh;
+}
+
+
+.w-btn {
+    border: none;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.198);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.w-btn-indigo {
+    background-color: #0F222D;
+    color: white;
+}
+
+
+.w-btn:hover {
+
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.w-btn-outline:hover {
+
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.w-btn:active {
+    transform: scale(1.1);
+}
+
+#modifyButton{
+    margin-bottom: 5vh;
+}
+
+
+/*구매내역조회*/
 #cartSection {
     width: 100%;
     color: gray;
@@ -155,19 +290,12 @@ main {
     margin-bottom: 1vh;
 }
 
-.cartInformation{
-    width: 99vh;
-    font-size: 2vh;
-    font-weight: 700;
-    color: lightgray;
-    background-color: black;
-    margin-bottom: 1vh;
-}
 
-table {
+.orderList {
     border-bottom: solid 0.5vh gray;
     width: 100vh;
     font-size: 2vh;
+    margin-bottom: 10vh;
   }
 
 #tablehead{
@@ -176,14 +304,22 @@ table {
     text-align: center;
 }
 
-td{
+.orderList tr th {
+    border-top: 0.1vh solid gray;
+}
+.orderListDetail td {
     border-top: 0.1vh solid gray;
 }
 
-
-
-.productdetail{
+.orderdetail{
     width: 50vh;
+}
+
+.noData{
+    font-size: 2.5vh;
+    text-align: center;
+    padding: 3vh 0vh 3vh 0vh;
+    border-top: 0.1vh solid gray;
 }
 
 .productimage{
@@ -199,14 +335,14 @@ td{
     color: darkgrey ;
 }
 
-img{
+.img{
     width: 15vh;
     height: 15vh;
     margin: 0;
 }
 
-.unit_price{
-    width: 10vh;
+.orderdate{
+    width: 15vh;
     text-align: center;
     border-left: 0.1vh solid gray;
 }
@@ -222,12 +358,159 @@ img{
     border-left: 0.1vh solid gray;
     text-align: center;
 }
-.delete{
+.insert{
     border-left: 0.1vh solid gray;
     text-align: center;
+
+}
+
+/*리뷰작성 버튼*/
+.insertBtn {
+    width: 10vh;
+    height: 4vh;
+    appearance: none;
+    border: none;
+    padding: 1vh 1.5vh;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: gray;
+    color: white;
+    font-size: 1.5vh;
+    text-align: center;
+    margin-left: 0.5vh;
 }
 
 
+.insertBtn:hover {
+
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.insertBtn:active {
+
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/*내가 쓴 리뷰*/
+#cartSection {
+    width: 100%;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartpart{
+    width: 99vh;
+    font-size: 3vh;
+    font-weight: 700;
+    color: lightgray;
+    background-color: black;
+    margin-bottom: 1vh;
+}
+
+
+.reviewList, .mysearchList {
+    border-bottom: solid 0.5vh gray;
+    width: 100vh;
+    font-size: 2vh;
+    margin-bottom: 10vh;
+  }
+
+#tablehead{
+    background-color: gray;
+    color: white;
+    text-align: center;
+}
+
+.reviewList td, #tablehead th {
+    border-top: 0.1vh solid gray;
+}
+
+.orderdetail{
+    width: 50vh;
+}
+
+.noData{
+    font-size: 2.5vh;
+    text-align: center;
+    padding: 3vh 0vh 3vh 0vh;
+}
+
+.productimage{
+    width: 15vh;
+}
+
+.productname{
+    width: 30vh;
+}
+
+.productname > a{
+    text-decoration-line: none;
+    color: darkgrey ;
+}
+
+.img {
+    width: 15vh;
+    height: 15vh;
+    margin: 0;
+}
+
+.orderdate{
+    width: 15vh;
+    text-align: center;
+    border-left: 0.1vh solid gray;
+}
+
+
+.reviewcontent{
+    width: 23vh;
+    border-left: 0.1vh solid gray;
+    text-align: center;
+}
+.insert{
+    border-left: 0.1vh solid gray;
+    text-align: center;
+
+}
+
+/*리뷰작성 버튼*/
+.insertBtn {
+    width: 10vh;
+    height: 4vh;
+    appearance: none;
+    border: none;
+    padding: 1vh 1.5vh;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: gray;
+    color: white;
+    font-size: 1.5vh;
+    text-align: center;
+    margin-left: 0.5vh;
+}
+
+
+.insertBtn:hover {
+
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.insertBtn:active {
+
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* footer */
 footer {
     width: 100%;
     height: fit-content;
@@ -274,54 +557,6 @@ footer {
 }
 #helpWrap > p:nth-child(1) {
     font-size: x-large;
-}
-
-
-/*주문하기 버튼*/
-.deleteBtn {
-    appearance: none;
-    border: none;
-    padding: 1vh 1.5vh;
-    border-radius: 15px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-    background-color: gray;
-    color: white;
-    width:80px;
-}
-.orderBtns{
-    display: flex;
-    justify-content: center;
-}
-
-.cartBigorderbtn {
-
-    margin: 3vh 0vh 3vh 0vh;
-    font-size: 3vh;
-    width: 30vh;
-    height: 5vh;
-    appearance: none;
-    border: none;
-    border-radius: 1vh;
-    /* box-shadow: 0 0.1vh 1vh rgba(255, 255, 255, 0.643); */
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-    background-color: gray;
-    color: white;
-}
-
-.deleteBtn:hover, .cartBigorderbtn:hover {
-
-    transform: scale(1.1);
-    cursor: pointer;
-}
-
-.delete:active, .cartBigorderbtn:active {
-
-    transform: scale(1.1);
-    cursor: pointer;
 }
 
 /* 상세검색 모달 */

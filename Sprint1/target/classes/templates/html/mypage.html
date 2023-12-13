@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EV TIRE MALL</title>
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="icon" href="./images/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/mypage.css">
+    <link rel="icon" href="./img/favicon.jpg" type="image/x-icon">
 </head>
 <body>
     <div id="allWrap">
@@ -55,149 +55,124 @@
                 </div>
             </section>
         </header>
-        
-        <main> <!-- main -->
-            <section id="adVideo"> <!-- ad -->
-                <div class="sliderVideo">
-                    <div class="sliderInner">
-                        <div class="slider">
-                            <video muted autoplay loop>
-                                <source src="./video/hankook.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="slider">
-                            <video muted autoplay loop>
-                                <source src="./video/kumho.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="slider">
-                            <video muted autoplay loop>
-                                <source src="./video/nexen.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="slider">
-                            <video muted autoplay loop>
-                                <source src="./video/michelin.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="slider">
-                            <video muted autoplay loop>
-                                <source src="./video/continental.mp4" type="video/mp4">
-                            </video>
-                        </div>
+    
+    <main> <!-- main -->
+        <section id="mypageSection"> <!-- 마이페이지 섹션 리스트 묶음 -->
+            <div class="mypagepart">
+                <div class="pagetitle">마이페이지</div><!-- 페이지 제목 -->
+                <a href="#modify" class="scroll_move">회원정보수정</a> <!--modify -->
+                <a href="#myorder" class="scroll_move">구매내역조회</a><!-- myorder-->
+                <a href="#myreview" class="scroll_move">내가 쓴 리뷰</a><!-- myreview-->
+                <a href="#mysearch" class="scroll_move">제품검색내역</a><!-- mysearch-->
+            </div> 
+            <div class="mypagelist">
+                <div class="section" id="modify">
+                    <div class="sectiontitle">회원정보수정</div><!-- 회원정보수정section제목 -->
+                    <div id="sectionBox">
+                        <form method="post" action="#">
+                            <input type="text" name="id"  placeholder="  Your ID"  autocomplete="off" id="idInput">
+                            <input type="password" name="pw"  placeholder="  Your Password"  autocomplete="off">
+                            <input type="text" name="name"  placeholder="  Your full Name"  autocomplete="off">
+                            <input type="text" name="phonenum"  placeholder="  Your Phone Number"  autocomplete="off">
+                            <input type="text" name="email"  placeholder="  Your e-mail"  autocomplete="off">
+                            <button class="w-btn w-btn-indigo" type="submit" id="modifyButton" onclick="javascript:modifybtn()">수정</button>
+                        </form>
                     </div>
-                </div>
-            </section>
-            <section id="adImg">
-                <div id="adImgTitle">
-                    <p>인기상품</p>
-                </div>
-                <div id="adImgWrap">
-                    <div id="kumho">
-                        <img src="./images/testKumho.png">
-                    </div>
-                    <div id="nexen">
-                        <img src="./images/testNexen.png">
-                    </div>
-                    <div id="hankook">
-                        <img src="./images/testHankook.webp">
-                    </div>
-                    <div id="continental">
-                        <img src="./images/testContinental.jpeg">
-                    </div>
-                    <div id="michelin">
-                        <img src="./images/testMichelin.full.webp">
-                    </div>
-                </div>
-            </section>
-            <!-- <section class="lhtb">
-                <div class="section-fhd">
-                    <div class="lhtb_grid grid-unit">
-                        <div class="lhtb_item"></div>
-                        <div class="lhtb_item ">
-                            <a href="/kr/ko/tire/kinergy/stas.html" target="_self">
-                                <img src="images/testcar1.jpg"/>
-                                <div class="content">
-                                    <span class="font_body_2_main desc">완벽을 추구하는 당신을 위한 사계절용 밸런스 타이어</span>
-                                </div>
-                            </a>
-                        </div>
-                    
-                        <div class="lhtb_item ">
-                            <a href="/kr/ko/tire/ion/evo-as-suv.html" target="_self">
-                                <img src="images/car2.jpg"/>
-                                <div class="content">
-                                    <span class="font_body_2_main desc">EV 특화 기술로 완성된 전기차 전용 사계절 타이어</span>
-                                </div>
-                            </a>
-                        </div>
-                    
-                        <div class="lhtb_item hidden">
-                            <a href="/kr/ko/tire/ion/evo.html" target="_self">
-                                <img src="images/car3.jpg" alt="Hankook Tire &amp; Technology-Dynapro AT2 Xtream-KV-01"/>
-                                <div class="content">
-                                    <span class="font_body_2_main desc">EV 특화 기술로 완성된 최초의 전기차 전용 퍼포먼스 타이어</span>
-                                </div>
-                            </a>
-                        </div>
-                    
-                        <div class="lhtb_item hidden">
-                            <a href="/kr/ko/tire/ventus/s1evozas-h129.html" target="_self">
-                                <img src="images/car4.jpg"/>
-                                <div class="content">
-                                    <span class="font_body_2_main desc">모터스포츠의 기술을 담은 초고성능 슈퍼 스포츠 올시즌 타이어</span>
-                                </div>
-                            </a>
-                        </div>
-                    
-                        <div class="lhtb_item hidden">
-                            <a href="/kr/ko/tire/dynapro/hpx-ra43.html" target="_self">
-                                <img src="images/car5.jpg"/>
-                                <div class="content">
-                                    <span class="font_body_2_main desc">최고의 핸들링을 제공하는 SUV전용 프리미엄 컴포트 타이어</span>
-                                </div>
-                            </a>
-                        </div> -->
-    <!--                 
-                        <div class="lhtb_item hidden">
-                            <a href="/kr/ko/tire/smart/flexah51-ah51.html" target="_self">
-                                <img src="images/car6.jpg"/>
-                                <div class="content">
-                                    <span class="font_body_2_main desc">최상위 기술력이 적용된 카고 전륜용 프리미엄 타이어</span>
-                                </div>
-                            </a>
-                        </div>
-                    
-                        <div class="lhtb_item hidden">
-                            <a href="/kr/ko/tire/smart/touringal22-al22.html" target="_self">
-                                <img src="./images/car7.jpg"/>
-                                <div class="content">
-                                    <span class="font_body_2_main desc">최상의 고속주행 성능, 최고의 승차감</span>
-                                </div>
-                            </a>
-                        </div> -->
-                    <!-- </div>
                 </div> 
-            </section> -->
-        </main>
+                <div class="section" id="myorder">
+                    <div class="sectiontitle">구매내역조회</div> <!-- 구매내역조회section제목 -->
+                    <table class="orderList">
+                        <tr id="tablehead">  <!--장바구니 표의 head-->
+                            <th class="orderdetail" colspan="2">상품정보</th>  <!--제품이미지와 상품명으로 2칸을 차지함-->
+                            <th class="orderdate">주문일자</th>
+                            <th class="count">수량</th>
+                            <th class="price">총주문금액</th>
+                            <th class="insert">리뷰작성</th>
+                        </tr>
+                        <!-- DB가 없는 경우 -->
+                        <tr class="orderListDetail"> 
+                            <td class="noData" colspan="6">구매하신 상품이 없습니다</td> <!--구매내역이 없는 경우입니다.-->
+                        </tr>
 
-        <footer> <!-- footer -->
-            <div id="introduce">
-                <div id="introduceWrap">
-                    <p>주소 : 광주광역시 광산구 소촌로 152번길 37</p>
-                    <p>대표이사 : 조가영</p>
-                    <p>사업자등록번호 : 108-35-62845</p>
-                </div>
+                        <!-- DB가 있는 경우 -->
+                        <tr class="orderListDetail"> <!--장바구니 표의 리스트-->
+                            <td class="productimage"><img src="image/keyboard.jpg" class="img"></td> 
+                            <td class="productname"><a href="#">상품명입니다.</a></td>
+                            <td class="orderdate">2023-12-12</td>
+                            <td class="count">1</td>
+                            <td class="price">100,000</td>
+                            <td class="insert"><button type="submit" class="insertBtn">리뷰작성</button></td>
+                        </tr>
+                    </table>
+                </div> 
+                <div class="section" id="myreview">
+                    <div class="sectiontitle">내가 쓴 리뷰</div>
+                    <table class="reviewList">
+                        <tr id="tablehead">  
+                            <th class="orderdetail" colspan="2">상품정보</th> 
+                            <th class="orderdate">주문일자</th>
+                            <th class="price">리뷰 내용</th>
+                            <th class="insert" >리뷰 삭제</th>
+                        </tr>
+                                <!-- DB가 없는 경우 -->
+                                <tr class="orderListDetail"> 
+                                    <td class="noData" colspan="6">작성하신 리뷰가 없습니다</td> <!--구매내역이 없는 경우입니다.-->
+                                </tr>
+        
+                                <!-- DB가 있는 경우 -->
+                        <tr class="orderListDetail"> 
+                            <td class="productimage"><img src="image/keyboard.jpg" class="img"></td> 
+                            <td class="productname"><a href="#">상품명입니다.</a></td>
+                            <td class="orderdate">2023-12-12</td>
+                            <td class="reviewcontent">좋습니다.</td>
+                            <td class="insert"><button type="submit" class="insertBtn" onclick="javascript:deletebtn()">삭제</button></td>
+                        </tr>
+                    </table>
+                </div> 
+                <div class="section" id="mysearch">
+                    <div class="sectiontitle">상품 검색 내역</div>
+                    <table class="mysearchList">
+
+                        <tr id="tablehead">  
+                            <th class="orderdetail" colspan="2">상품정보</th> 
+                        </tr>
+                        <!-- DB가 없는 경우 -->
+                        <tr class="mysearchDetail"> 
+                            <td class="noData" colspan="6">검색하신 상품이 없습니다</td> <!--구매내역이 없는 경우입니다.-->
+                        </tr>
+                                <!-- DB가 있는 경우 -->
+                        <tr class="mysearchDetail"> 
+                            <td class="productimage"><img src="image/keyboard.jpg" class="img"></td> 
+                            <td class="productname"><a href="#">상품명입니다.</a></td>
+                        </tr>
+                        <tr class="mysearchDetail"> 
+                            <td class="productimage"><img src="image/keyboard.jpg" class="img"></td> 
+                            <td class="productname"><a href="#">상품명입니다.</a></td>
+                        </tr>
+                    </table>
+                </div> 
             </div>
-            <div id="help">
-                <div id="helpWrap">
-                    <p>고객센터 8356 - 2845</p>
-                    <p>평일 09:00 ~ 18:00</p>
-                    <p>토요일, 공휴일 휴무</p>
-                </div>
+        </section>
+    </main>
+
+    <footer> <!-- footer -->
+        <div id="introduce">
+            <div id="introduceWrap">
+                <p>주소 : 광주광역시 광산구 소촌로 152번길 37</p>
+                <p>대표이사 : 조가영</p>
+                <p>사업자등록번호 : 108-35-62845</p>
             </div>
-        </footer>
+        </div>
+        <div id="help">
+            <div id="helpWrap">
+                <p>고객센터 8356 - 2845</p>
+                <p>평일 09:00 ~ 18:00</p>
+                <p>토요일, 공휴일 휴무</p>
+            </div>
+        </div>
+    </footer>
     </div>
+
     <div id="checkBox"> <!-- 상세검색 모달 -->
         <div id="checkBoxX">
             <p>&#215;</p>
@@ -423,6 +398,6 @@
         </form>
     </div>
 
-    <script src="./js/main.js"></script>
+    <script src="js/mypage.js"></script>
 </body>
 </html>
