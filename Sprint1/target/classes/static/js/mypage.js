@@ -10,9 +10,12 @@ function modifybtn(){
     alert('회원정보가 정상적으로 수정되었습니다.');
 };
 
-
-function deletebtn(){
+function orderdeletebtn(){
     alert('리뷰가 정상적으로 삭제되었습니다.');
+}
+
+function searchdeletebtn(){
+    alert('검색 내역이 정상적으로 삭제되었습니다.');
 }
 
 // 로고를 누르면 main으로 이동 //

@@ -306,6 +306,12 @@ public class LoginController {
         @RequestParam("id") String id,
         Model model
     ) {
+        List<Map<String,Object>> purchase = sprintDao.selectPurchaseHistory(id);
+        List<Map<String,Object>> review = sprintDao.selectReview(id);
+        List<Map<String,Object>> search = sprintDao.selectSearchHistory(id);
+        model.addAttribute("purchase", purchase);
+        model.addAttribute("review", review);
+        model.addAttribute("search", search);
         return "/html/mypage";
     }
 }

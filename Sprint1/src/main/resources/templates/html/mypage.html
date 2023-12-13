@@ -81,73 +81,84 @@
                 <div class="section" id="myorder">
                     <div class="sectiontitle">구매내역조회</div> <!-- 구매내역조회section제목 -->
                     <table class="orderList">
-                        <tr id="tablehead">  <!--장바구니 표의 head-->
-                            <th class="orderdetail" colspan="2">상품정보</th>  <!--제품이미지와 상품명으로 2칸을 차지함-->
-                            <th class="orderdate">주문일자</th>
-                            <th class="count">수량</th>
-                            <th class="price">총주문금액</th>
-                            <th class="insert">리뷰작성</th>
-                        </tr>
-                        <!-- DB가 없는 경우 -->
-                        <tr class="orderListDetail"> 
-                            <td class="noData" colspan="6">구매하신 상품이 없습니다</td> <!--구매내역이 없는 경우입니다.-->
-                        </tr>
+                        
+                        <th:block th:if="${purchase.size()} == 0">
+                            <tr class="orderListDetail"> 
+                                <td class="noData" colspan="6">구매하신 상품이 없습니다</td> <!--구매내역이 없는 경우입니다.-->
+                            </tr>
+                        </th:block>
 
-                        <!-- DB가 있는 경우 -->
-                        <tr class="orderListDetail"> <!--장바구니 표의 리스트-->
-                            <td class="productimage"><img src="image/keyboard.jpg" class="img"></td> 
-                            <td class="productname"><a href="#">상품명입니다.</a></td>
-                            <td class="orderdate">2023-12-12</td>
-                            <td class="count">1</td>
-                            <td class="price">100,000</td>
-                            <td class="insert"><button type="submit" class="insertBtn">리뷰작성</button></td>
-                        </tr>
+                        <th:block th:if="${purchase.size()} != 0">
+                            <tr id="tablehead">
+                                <th class="orderdetail" colspan="2">상품정보</th> 
+                                <th class="orderdate">주문일자</th>
+                                <th class="count">수량</th>
+                                <th class="price">총주문금액</th>
+                                <th class="insert">리뷰작성</th>
+                            </tr>
+                            
+                            <tr class="orderListDetail" th:each="purchase : ${purchase}">
+                                <td class="productimage"><img th:src="${purchase.product_image}" class="img"></td> 
+                                <td class="productname"><a href="#">[[${purchase.product_name}]]</a></td>
+                                <td class="orderdate">[[${purchase.purchase_date}]]</td>
+                                <td class="count">[[${purchase.purchase_qty}]]</td>
+                                <td class="price">[[${purchase.product_price}]]</td>
+                                <td class="insert"><button type="submit" class="insertBtn">리뷰작성</button></td>
+                            </tr>
+                        </th:block>
                     </table>
                 </div> 
+                
                 <div class="section" id="myreview">
                     <div class="sectiontitle">내가 쓴 리뷰</div>
                     <table class="reviewList">
-                        <tr id="tablehead">  
-                            <th class="orderdetail" colspan="2">상품정보</th> 
-                            <th class="orderdate">주문일자</th>
-                            <th class="price">리뷰 내용</th>
-                            <th class="insert">리뷰 삭제</th>
-                        </tr>
-                                <!-- DB가 없는 경우 -->
-                                <tr class="orderListDetail"> 
-                                    <td class="noData" colspan="6">작성하신 리뷰가 없습니다</td> <!--구매내역이 없는 경우입니다.-->
-                                </tr>
-        
-                                <!-- DB가 있는 경우 -->
-                        <tr class="orderListDetail"> 
-                            <td class="productimage"><img src="image/keyboard.jpg" class="img"></td> 
-                            <td class="productname"><a href="#">상품명입니다.</a></td>
-                            <td class="orderdate">2023-12-12</td>
-                            <td class="reviewcontent">좋습니다.</td>
-                            <td class="insert"><button type="submit" class="insertBtn" onclick="javascript:deletebtn()">삭제</button></td>
-                        </tr>
+
+                        <th:block th:if="${review.size()} == 0">
+                            <tr class="orderListDetail"> 
+                                <td class="noData" colspan="6">작성하신 리뷰가 없습니다</td> <!--구매내역이 없는 경우입니다.-->
+                            </tr>
+                        </th:block>
+
+                        <th:block th:if="${review.size()} != 0">
+                            <tr id="tablehead">  
+                                <th class="orderdetail" colspan="2">상품정보</th> 
+                                <th class="orderdate">주문일자</th>
+                                <th class="price">리뷰 내용</th>
+                                <th class="insert">리뷰 삭제</th>
+                            </tr>
+                
+                            <tr class="orderListDetail" th:each="review : ${review}"> 
+                                <td class="productimage"><img th:src="${review.product_image}" class="img"></td> 
+                                <td class="productname"><a href="#">[[${review.product_name}]]</a></td>
+                                <td class="orderdate">[[${review.purchase_date}]]</td>
+                                <td class="reviewcontent">[[${review.content}]]</td>
+                                <td class="insert"><button type="submit" class="insertBtn" onclick="javascript:orderdeletebtn()">삭제</button></td>
+                            </tr>
+                        </th:block>
                     </table>
                 </div> 
                 <div class="section" id="mysearch">
                     <div class="sectiontitle">상품 검색 내역</div>
                     <table class="mysearchList">
-
-                        <tr id="tablehead">  
-                            <th class="orderdetail" colspan="2">상품정보</th> 
-                        </tr>
-                        <!-- DB가 없는 경우 -->
-                        <tr class="mysearchDetail"> 
-                            <td class="noData" colspan="6">검색하신 상품이 없습니다</td> <!--구매내역이 없는 경우입니다.-->
-                        </tr>
-                                <!-- DB가 있는 경우 -->
-                        <tr class="mysearchDetail"> 
-                            <td class="productimage"><img src="image/keyboard.jpg" class="img"></td> 
-                            <td class="productname"><a href="#">상품명입니다.</a></td>
-                        </tr>
-                        <tr class="mysearchDetail"> 
-                            <td class="productimage"><img src="image/keyboard.jpg" class="img"></td> 
-                            <td class="productname"><a href="#">상품명입니다.</a></td>
-                        </tr>
+                        
+                        <th:block th:if="${search.size()} == 0">
+                            <tr class="mysearchDetail"> 
+                                <td class="noData" colspan="6">검색하신 상품이 없습니다</td> <!--구매내역이 없는 경우입니다.-->
+                            </tr>
+                        </th:block>
+                        
+                        <th:block th:if="${search.size()} != 0">
+                            <tr id="tablehead">  
+                                <th class="orderdetail" colspan="2">상품정보</th>
+                                <th class="insert">내역 삭제</th>
+                            </tr>
+    
+                            <tr class="mysearchDetail" th:each="search : ${search}"> 
+                                <td class="productimage"><img th:src="${search.product_image}" class="img"></td> 
+                                <td class="productname"><a th:href="'/detail?seq='+${search.seq}+'&id='+${session.user.id}">[[${search.product_name}]]</a></td>
+                                <td class="insert"><button type="submit" class="insertBtn" onclick="javascript:searchdeletebtn()">삭제</button></td>
+                            </tr>
+                        </th:block>
                     </table>
                 </div> 
             </div>
