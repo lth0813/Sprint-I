@@ -174,7 +174,6 @@ main {
     height: fit-content;
     display: flex;
     flex-direction: column;
-    color: gray;
     padding: 3vw 0 0 0;
     box-sizing: border-box;
 }
@@ -184,6 +183,7 @@ main {
     margin: 0 0 1.5vw 0;
     font-size: large;
     font-weight: bold;
+    color: gray;
 }
 #adImgWrap {
     width: 100%;
@@ -204,6 +204,22 @@ main {
 #adImgWrap img:hover {
     transition: 0.8s;
     transform: scale(1.03);
+}
+#kumhoText {
+    /* display: none; */
+    position: relative;
+    bottom: 4vw;
+    left: 2vh;
+    z-index: 1;
+    color: lightgray;
+}
+#kumhoText > p:nth-child(1) {
+    font-size: large;
+    font-weight: bold;
+}
+#kumhoText > p:nth-child(2) {
+    font-size: x-large;
+    font-weight: bold;
 }
 #continental {
     grid-column: 3 / 4;

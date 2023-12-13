@@ -28,6 +28,21 @@ close.addEventListener("click", function() {
     blur.style.opacity = "1";
 });
 
+// 결제하기 버튼을 누르면 구매완료 모달창 띄우기 //
+const modal2 = document.querySelector("#buyO");
+const modalButton2 = document.querySelector(".cartBigorderbtn");
+modalButton2.addEventListener("click", function() {
+    modal2.style.display = "block";
+    blur.style.opacity = "0.5";
+});
+
+// 구매완료 모달창 닫기 버튼 //
+const close2 = document.querySelector("#buyOX > p");
+close2.addEventListener("click", function() {
+    modal2.style.display = "none";
+    blur.style.opacity = "1";
+});
+
 // 로그인, 장바구니, 마이페이지를 클릭하면 해당 페이지로 이동 //
 const login = document.querySelector("#login");
 const cart = document.querySelector("#cart");

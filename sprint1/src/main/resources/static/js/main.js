@@ -52,6 +52,8 @@ michelin.addEventListener("click", function() {
     location.href = "/";
 });
 
+// 인기상품 hover시 상품명 띄우기 //
+
 // 로그인, 장바구니, 마이페이지를 클릭하면 해당 페이지로 이동 //
 const login = document.querySelector("#login");
 const cart = document.querySelector("#cart");
@@ -66,4 +68,4 @@ mypage.addEventListener("click", function() {
     location.href = "/";
 });
 
-// 인기 상품 hover시 상품명 띄우기 //
+

@@ -1,6 +1,5 @@
 * {
     border: 1px solid white;
-    color: white;
     margin: 0;
     padding: 0;
 }
@@ -357,25 +356,117 @@ footer {
 #buyO {
     width: 30%;
     height: fit-content;
-    display: flex;
-    flex-direction: column;
+    display: none;
     padding: 0.5vw 1vh;
     box-sizing: border-box;
+    background-color: white;
+    border: 0;
+    z-index: 10;
+    position: fixed;
+    position: relative;
+    bottom: 30vw;
+    left: 70vh;
+}
+#buyOX {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: end;
+    color: white;
+}
+#buyOX > p {
+    width: fit-content;
+    height: fit-content;
+    background-color: black;
+    padding: 0.5% 1vh;
+    font-weight: bold;
+    cursor: pointer;
+}
+#buyOWrap {
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    padding: 2vw 4vh;
 }
 #buyOTitle {
     width: 100%;
     height: fit-content;
     display: flex;
     font-size: x-large;
-    font-weight: bold;
+    box-sizing: border-box;
+    padding: 3% 0;
 }
 #buyOTitleWrap {
     width: fit-content;
     height: fit-content;
     display: flex;
+    align-items: center;
 }
-
-
+#buyOTitleWrap > svg {
+    width: 20%;
+    height: 5vh;
+    margin: 0 1vh 0 0;
+    box-sizing: border-box;
+    color: black;
+}
+#buyOGoods {
+    width: 100%;
+    height: fit-content;
+    font-size: small;
+}
+#buyOGoodsWrap {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+}
+#buyOGoodsImg {
+    width: 30%;
+    height: fit-content;
+}
+#buyOGoodsImg > img {
+    width: 100%;
+    height: 15vh;
+}
+#buyOGoodsDetail {
+    width: 70%;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0.5% 1vh;
+}
+#buyOGoodsDetail > * {
+    margin: 0.5% 0;
+    box-sizing: border-box;
+}
+#buyOText {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3vw 6vh;
+    box-sizing: border-box;
+}
+#buyOText > * {
+    margin: 1% 0;
+}
+#buyObtn {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+#buyObtn > button {
+    width: 30%;
+    height: 5vh;
+    background-color: black;
+    color: white;
+    border: 0;
+    cursor: pointer;
+}
+ 
 /* 상세검색 모달 */
 #checkBox {
     width: 50%;

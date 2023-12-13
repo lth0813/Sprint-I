@@ -157,5 +157,9 @@ public class LoginController {
         model.addAttribute("tire", tire);
         return "/html/main";
     }
-   
+    
+    @GetMapping("/product")
+    public String Product() {
+        return "html/product";
+    }
 }

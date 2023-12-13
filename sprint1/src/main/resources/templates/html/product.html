@@ -67,7 +67,7 @@
         <br>
         <br>
         <section id="cartSection"> <!-- cart 장바구니 -->
-            <div class="cartpart">장바구니</div><!-- 페이지 제목 -->
+            <div class="cartpart">상품정보</div><!-- 페이지 제목 -->
             <div class="cartInformation">
            <form>
                 <table class="cartList">
@@ -84,7 +84,7 @@
                     </tr>
                 </table>
                 <div class="orderBtns">
-                    <button class="cartBigorderbtn">총 결제하기</button>
+                    <button type="button" class="cartBigorderbtn">총 결제하기</button>
                 </div>
                 
                 <!-- 모달 -->
@@ -123,37 +123,39 @@
 
     <!-- 구매완료 모달 --> 
     <div id="buyO"> 
-        <div class="x">
+        <div id="buyOX">
             <p>&#215;</p>
         </div>
-        <div id="buyOTitle"> <!-- #buyOTitle -->
-            <div id="buyOTitleWrap"> <!-- #buyOTitleWrap -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
-                    <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
-                    <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
-                </svg>
-                <p>구매완료</p>
-            </div>
-        </div>
-        <div id="buyOGoods"> <!-- #buyOGoods -->
-            <div id="buyOGoodsWrap"> <!-- #buyOGoodsWrap -->
-                <div id="buyOGoodsImg"> <!-- #buyOGoodsImg -->
-                    <img src="">
-                </div>
-                <div id="buyOGoodsDetail"> <!-- #buyOGoodsDetail -->
-                    <p>상품명 :&nbsp;</p>
-                    <p>가격 :&nbsp;</p>
-                    <p>수량 :&nbsp;</p>
-                    <p>총 결제 금액 :&nbsp;</p>
+        <div id="buyOWrap"> <!-- #buyOWrap -->
+            <div id="buyOTitle"> <!-- #buyOTitle -->
+                <div id="buyOTitleWrap"> <!-- #buyOTitleWrap -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+                    </svg>
+                    <p>구매완료</p>
                 </div>
             </div>
-        </div>
-        <div id="buyOText"> <!-- #buyOText -->
-            <p>회원님께서 주문하신 상품의 구매가</p>
-            <p>완료되었습니다.</p>
-        </div>
-        <div id="buyObtn"> <!-- #buyObtn -->
-            <button type="submit">구매내역조회</button>
+            <div id="buyOGoods"> <!-- #buyOGoods -->
+                <div id="buyOGoodsWrap"> <!-- #buyOGoodsWrap -->
+                    <div id="buyOGoodsImg"> <!-- #buyOGoodsImg -->
+                        <img src="">
+                    </div>
+                    <div id="buyOGoodsDetail"> <!-- #buyOGoodsDetail -->
+                        <p>상품명 :&nbsp;</p>
+                        <p>가격 :&nbsp;</p>
+                        <p>수량 :&nbsp;</p>
+                        <p>총 결제 금액 :&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+            <div id="buyOText"> <!-- #buyOText -->
+                <p>회원님께서 주문하신 상품의 구매가</p>
+                <p>완료되었습니다.</p>
+            </div>
+            <div id="buyObtn"> <!-- #buyObtn -->
+                <button type="submit">구매내역조회</button>
+            </div>
         </div>
     </div>
 
