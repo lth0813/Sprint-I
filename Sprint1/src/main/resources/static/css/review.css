@@ -176,6 +176,12 @@ main {
     height: 20vh;
     border: 0.1vh solid whitesmoke;
 }
+
+.productimage > img {
+    width:150px;
+    height:150px;
+}
+
 .productname{
     width: 80vh;
     padding-left: 1vh;

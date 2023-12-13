@@ -181,13 +181,47 @@ public class LoginController {
     }
     
     @GetMapping("/cart")
-    public String cart() {
+    public String cart(
+        @RequestParam("id") String id,
+        Model model
+    ) {
+        int check = Integer.parseInt(sprintDao.selectCartCount(id).get(0).get("cnt").toString());
+        if (check < 1) {
+            String cart = "empty";
+            model.addAttribute("cart", cart);
+        } else {
+            List<Map<String,Object>> cart = sprintDao.selectCart(id);
+            model.addAttribute("cart", cart);
+        }
         return "/html/cart";
+    }
+    @PostMapping("/cart")
+    public String cartPost(
+        @RequestParam("cart_seq") String cart_seq,
+        @RequestParam("id") String id
+    ) {
+        sprintDao.deleteCart(cart_seq);
+        return "redirect:/cart?id="+id;
     }
     
     @GetMapping("/review")
-    public String review() {
+    public String review(
+        @RequestParam("seq") String seq,
+        Model model
+    ) {
+        Map<String,Object> tire = sprintDao.selectProduct(seq).get(0);
+        model.addAttribute("tire", tire);
         return "/html/review";
+    }
+
+    @PostMapping("/review")
+    public String reviewPost(
+        @RequestParam("id") String id,
+        @RequestParam("seq") String seq,
+        @RequestParam("content") String content
+    ) {
+        sprintDao.insertReview(seq, id, content);
+        return "redirect:/mypage?id="+id;
     }
 
     @GetMapping("/searchlist")

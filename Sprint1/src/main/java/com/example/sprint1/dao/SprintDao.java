@@ -50,7 +50,7 @@ public class SprintDao {
 
 // 리뷰
     // 리뷰 insert
-    public void insertReview(String seq, String content, String id) {
+    public void insertReview(String seq, String id, String content) {
         String sqlStmt = String.format("INSERT INTO review(seq, id, content, date) VALUES ('%s', '%s', '%s', NOW())", seq, id, content);
         jt.execute(sqlStmt);
     }
@@ -117,7 +117,12 @@ public class SprintDao {
 // 장바구니
     // 본인 장바구니 확인
     public List<Map<String,Object>> selectCart(String id) {
-        String sqlStmt = String.format("SELECT * FROM cart WHERE id = %s",id);
+        String sqlStmt = String.format("SELECT t.*, c.qty, c.cart_seq FROM tire_list t, cart c WHERE t.seq = c.seq AND c.id = '%s'",id);
+        return jt.queryForList(sqlStmt);
+    }
+    // 장바구니가 비었는지 확인
+    public List<Map<String,Object>> selectCartCount(String id) {
+        String sqlStmt = String.format("SELECT COUNT(*) cnt FROM cart WHERE id = '%s'",id);
         return jt.queryForList(sqlStmt);
     }
     // 장바구니 insert
