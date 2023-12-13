@@ -75,7 +75,7 @@
                     </div>
                 </div> 
                 <div class="section" id="myorder">
-                    <div class="sectiontitle">구매내역조회</div><!-- 구매내역조회section제목 -->
+                    <div class="sectiontitle">구매내역조회</div> <!-- 구매내역조회section제목 -->
                     <table class="orderList">
                         <tr id="tablehead">  <!--장바구니 표의 head-->
                             <th class="orderdetail" colspan="2">상품정보</td>  <!--제품이미지와 상품명으로 2칸을 차지함-->
@@ -84,12 +84,12 @@
                             <th class="price">총주문금액</td>
                             <th class="insert">리뷰작성</td>
                         </tr>
-                        <!-- 구매내역이 없는 경우 -->
-                        <tr class="orderListDetail"> i
+                        <!-- DB가 없는 경우 -->
+                        <tr class="orderListDetail"> 
                             <td class="noData" colspan="6">구매하신 상품이 없습니다</td> <!--구매내역이 없는 경우입니다.-->
                         </tr>
 
-                        <!-- 구매내역이 있는 경우 -->
+                        <!-- DB가 있는 경우 -->
                         <tr class="orderListDetail"> <!--장바구니 표의 리스트-->
                             <td class="productimage"><img src="image/keyboard.jpg"></td> 
                             <td class="productname"><a href="#">상품명입니다.</a></td>
@@ -109,12 +109,12 @@
                             <th class="price">리뷰 내용</td>
                             <th class="insert">리뷰 삭제</td>
                         </tr>
-                                <!-- 구매내역이 없는 경우 -->
+                                <!-- DB가 없는 경우 -->
                                 <tr class="orderListDetail"> 
                                     <td class="noData" colspan="6">작성하신 리뷰가 없습니다</td> <!--구매내역이 없는 경우입니다.-->
                                 </tr>
         
-                                <!-- 구매내역이 있는 경우 -->
+                                <!-- DB가 있는 경우 -->
                         <tr class="orderListDetail"> 
                             <td class="productimage"><img src="image/keyboard.jpg"></td> 
                             <td class="productname"><a href="#">상품명입니다.</a></td>
@@ -127,17 +127,20 @@
                 <div class="section" id="mysearch">
                     <div class="sectiontitle">상품 검색 내역</div>
                     <table class="mysearchList">
-                                <!-- 구매내역이 없는 경우 -->
-                                <tr class="mysearchDetail"> 
-                                    <td class="noData" colspan="6">검색하신 상품이 없습니다</td> <!--구매내역이 없는 경우입니다.-->
-                                </tr>
-        
-                                <!-- 구매내역이 있는 경우 -->
+
+                        <tr id="tablehead">  
+                            <th class="orderdetail" colspan="2">상품정보</td> 
+                        </tr>
+                        <!-- DB가 없는 경우 -->
+                        <tr class="mysearchDetail"> 
+                            <td class="noData" colspan="6">검색하신 상품이 없습니다</td> <!--구매내역이 없는 경우입니다.-->
+                        </tr>
+                                <!-- DB가 있는 경우 -->
                         <tr class="mysearchDetail"> 
                             <td class="productimage"><img src="image/keyboard.jpg"></td> 
                             <td class="productname"><a href="#">상품명입니다.</a></td>
-                            <td class="productimage"><img src="image/keyboard.jpg"></td> 
-                            <td class="productname"><a href="#">상품명입니다.</a></td>
+                        </tr>
+                        <tr class="mysearchDetail"> 
                             <td class="productimage"><img src="image/keyboard.jpg"></td> 
                             <td class="productname"><a href="#">상품명입니다.</a></td>
                         </tr>
