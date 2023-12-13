@@ -158,13 +158,19 @@ public class LoginController {
         return "/html/main";
     }
 
-        @GetMapping("/cart")
+    @GetMapping("/cart")
     public String cart() {
         return "/html/cart";
     }
-            @GetMapping("/review")
+
+        @GetMapping("/review")
     public String review() {
         return "/html/review";
+    }
+
+    @GetMapping("/mypage")
+    public String mypage() {
+        return "/html/mypage";
     }
 
 }

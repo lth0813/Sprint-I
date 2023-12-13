@@ -212,10 +212,12 @@ table {
     font-size: 2vh;
   }
 
-#reviewproduct{
+/* #reviewproduct:nth-child(1), .reviewhead{
     color: white;
     text-align: center;
-}
+    background-color: darkgrey;
+} */
+
 
 .productimage{
     width: 20vh;
@@ -286,7 +288,13 @@ footer {
 }
 
 /*리뷰등록 버튼*/
+.reviewBtns{
+    display: flex;
+    justify-content: center;
+}
+
 .reviewResisterBtn {
+
     margin: 3vh 0vh 3vh 0vh;
     font-size: 3vh;
     width: 30vh;
@@ -302,12 +310,14 @@ footer {
     color: white;
 }
 
-.deleteBtn:hover, .reviewResisterBtn:hover {
+.reviewResisterBtn:hover {
+
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.delete:active, .reviewResisterBtn:active {
+.reviewResisterBtn:active {
+
     transform: scale(1.1);
     cursor: pointer;
 }
