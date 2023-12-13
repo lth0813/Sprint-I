@@ -442,7 +442,6 @@
 
     <script src="./js/detail.js"></script>
 </body>
-</html>
 <script>
     const minus = document.querySelector(".qtyminus");
     const plus = document.querySelector(".qtyplus");
@@ -463,5 +462,20 @@
         price.innerHTML = parseInt(qty.innerHTML) * product_price;
     })
 
+    const cartinsert = document.querySelector(".cart");
+    cartinsert.addEventListener("click",() => {
+        if(parseInt(qty.innerHTML)<1){
+            alert("수량을 선택해주세요");
+            return false;
+        };
+    });
+
+    const orderinsert = document.querySelector(".purchase");
+    orderinsert.addEventListener("click",() => {
+        if(parseInt(qty.innerHTML)<1){
+            alert("수량을 선택해주세요");
+            return false;
+        };
+    });
 </script>
 </html>
