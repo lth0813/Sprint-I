@@ -92,6 +92,41 @@ header {
     height: max-content;
     font-size: small;
 }
+#loginO {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+}
+#loginOText {
+    width: fit-content;
+    height: fit-content;
+}
+#loginOText > p {
+    width: max-content;
+    height: max-content;
+    font-size: small;
+}
+#logout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+#logout > * {
+    margin: 1% 0 0 0;
+}
+#logout > svg {
+    width: 1.5vw;
+    height: 2vh;
+}
+#logout > p {
+    width: max-content;
+    height: max-content;
+    font-size: small;
+}
 #cart {
     display: flex;
     flex-direction: column;
