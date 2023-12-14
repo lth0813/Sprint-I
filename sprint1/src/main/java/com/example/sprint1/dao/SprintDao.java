@@ -50,7 +50,7 @@ public class SprintDao {
 
 // 리뷰
     // 리뷰 insert
-    public void insertReview(String seq, String content, String id) {
+    public void insertReview(String seq, String id, String content) {
         String sqlStmt = String.format("INSERT INTO review(seq, id, content, date) VALUES ('%s', '%s', '%s', NOW())", seq, id, content);
         jt.execute(sqlStmt);
     }
@@ -61,29 +61,29 @@ public class SprintDao {
     }
     // 리뷰 update
     public void updateReview(String review_seq, String content) {
-        String sqlStmt = String.format("UPDATE review SET content='%s', date=NOW() WHERE review_seq = %s",content, review_seq);
+        String sqlStmt = String.format("UPDATE review SET content='%s', date=NOW() WHERE review_seq = '%s'",content, review_seq);
         jt.execute(sqlStmt);
     }
     // 상품에 달린 리뷰 확인
     public List<Map<String,Object>> Review(String seq) {
-        String sqlStmt = String.format("SELECT * FROM review WHERE seq = %s",seq);
+        String sqlStmt = String.format("SELECT * FROM review WHERE seq = '%s'",seq);
         return jt.queryForList(sqlStmt);
     }
     // 상품에 달린 리뷰 개수 확인
     public List<Map<String,Object>> countReview(String seq) {
-        String sqlStmt = String.format("SELECT COUNT(*) cnt FROM review WHERE seq = %s",seq);
+        String sqlStmt = String.format("SELECT COUNT(*) cnt FROM review WHERE seq = '%s'",seq);
         return jt.queryForList(sqlStmt);
     }
     // 본인이 쓴 리뷰 확인
     public List<Map<String,Object>> selectReview(String id) {
-        String sqlStmt = String.format("SELECT * FROM review WHERE id = %s",id);
+        String sqlStmt = String.format("SELECT l.seq, r.review_seq, h.purchase_date, l.product_image, l.product_name, l.product_price, r.content FROM purchase_history h, tire_list l, review r WHERE r.id = '%s' AND r.seq = l.seq AND r.seq = h.seq ORDER BY r.review_seq DESC",id);
         return jt.queryForList(sqlStmt);
     }
 
 // 검색 이력
     // 본인 검색 이력 확인
     public List<Map<String,Object>> selectSearchHistory(String id) {
-        String sqlStmt = String.format("SELECT * FROM search_history WHERE id = %s",id);
+        String sqlStmt = String.format("SELECT h.search_seq, l.product_name, l.product_image, l.seq FROM search_history h, tire_list l WHERE h.id = '%s' AND h.seq = l.seq ORDER BY h.search_seq DESC;",id);
         return jt.queryForList(sqlStmt);
     }
     // 검색 이력 insert
@@ -100,7 +100,7 @@ public class SprintDao {
 // 구매 이력
     // 본인 구매 이력 확인
     public List<Map<String,Object>> selectPurchaseHistory(String id) {
-        String sqlStmt = String.format("SELECT * FROM purchase_history WHERE id = %s",id);
+        String sqlStmt = String.format("SELECT h.*, l.product_image, l.product_name, l.product_price, l.seq FROM purchase_history h, tire_list l WHERE h.id = '%s' AND h.seq = l.seq ORDER BY h.purchase_seq DESC;",id);
         return jt.queryForList(sqlStmt);
     }
     // 구매 이력 insert
@@ -117,7 +117,12 @@ public class SprintDao {
 // 장바구니
     // 본인 장바구니 확인
     public List<Map<String,Object>> selectCart(String id) {
-        String sqlStmt = String.format("SELECT * FROM cart WHERE id = %s",id);
+        String sqlStmt = String.format("SELECT t.*, c.qty, c.cart_seq FROM tire_list t, cart c WHERE t.seq = c.seq AND c.id = '%s'",id);
+        return jt.queryForList(sqlStmt);
+    }
+    // 장바구니가 비었는지 확인
+    public List<Map<String,Object>> selectCartCount(String id) {
+        String sqlStmt = String.format("SELECT COUNT(*) cnt FROM cart WHERE id = '%s'",id);
         return jt.queryForList(sqlStmt);
     }
     // 장바구니 insert
@@ -137,12 +142,50 @@ public class SprintDao {
         String sqlStmt = "SELECT * FROM tire_list";
         return jt.queryForList(sqlStmt);
     }
+
     // 단일 상품 조회
     public List<Map<String,Object>> selectProduct(String seq) {
         String sqlStmt = String.format("SELECT * FROM tire_list WHERE seq = '%s'", seq);
         return jt.queryForList(sqlStmt);
     }
 
+    // 상세 검색 상품 조회
+    public List<Map<String, Object>> searchTires(
+            String[] manufacturers,
+            String[] carTypes,
+            String[] tireCharacteristics,
+            String[] lownoise,
+            String[] dimensions,
+            String[] percentages,
+            String[] inches) {
+        StringBuilder queryBuilder = new StringBuilder("SELECT * FROM tire_list WHERE 1=1");
+        appendConditions(queryBuilder, "manufacturer", manufacturers);
+        appendConditions(queryBuilder, "car_type", carTypes);
+        appendConditions(queryBuilder, "tire_type", tireCharacteristics);
+        appendConditions(queryBuilder, "low_noise", lownoise);
+        appendConditions(queryBuilder, "width", dimensions);
+        appendConditions(queryBuilder, "aspect_ratio", percentages);
+        appendConditions(queryBuilder, "wheel_diameter", inches);
+
+        return jt.queryForList(queryBuilder.toString());
+    }
+
+    private void appendConditions(StringBuilder queryBuilder, String columnName, String[] values) {
+        if (values != null && values.length > 0) {
+            queryBuilder.append(" AND ").append(columnName).append(" IN (");
+            for (int i = 0; i < values.length; i++) {
+                queryBuilder.append("'").append(values[i]).append("'");
+                if (i < values.length - 1) {
+                    queryBuilder.append(",");
+                }
+            }
+            queryBuilder.append(")");
+        }
+    }
 
 
+    public void updateUser(String pw, String name, String phonenum, String email, String id) {
+        String sqlStmt = String.format("UPDATE user_list SET password='%s', name='%s', phonenumber='%s', email='%s' WHERE id = '%s'", pw, name, phonenum, email, id);
+        jt.execute(sqlStmt);
+    }
 }
