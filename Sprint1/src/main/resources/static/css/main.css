@@ -91,6 +91,41 @@ header {
     height: max-content;
     font-size: small;
 }
+#loginO {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+}
+#loginOText {
+    width: fit-content;
+    height: fit-content;
+}
+#loginOText > p {
+    width: max-content;
+    height: max-content;
+    font-size: small;
+}
+#logout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+#logout > * {
+    margin: 1% 0 0 0;
+}
+#logout > svg {
+    width: 1.5vw;
+    height: 2vh;
+}
+#logout > p {
+    width: max-content;
+    height: max-content;
+    font-size: small;
+}
 #cart {
     display: flex;
     flex-direction: column;
@@ -174,7 +209,6 @@ main {
     height: fit-content;
     display: flex;
     flex-direction: column;
-    color: gray;
     padding: 3vw 0 0 0;
     box-sizing: border-box;
 }
@@ -184,6 +218,7 @@ main {
     margin: 0 0 1.5vw 0;
     font-size: large;
     font-weight: bold;
+    color: gray;
 }
 #adImgWrap {
     width: 100%;
@@ -201,9 +236,93 @@ main {
     height: 40vh;
     cursor: pointer;
 }
-#adImgWrap img:hover {
+#kumho:hover {
     transition: 0.8s;
     transform: scale(1.03);
+    cursor: pointer;
+}
+#nexen:hover {
+    transition: 0.8s;
+    transform: scale(1.03);
+    cursor: pointer;
+}
+#hankook:hover {
+    transition: 0.8s;
+    transform: scale(1.03);
+    cursor: pointer;
+}
+#continental:hover {
+    transition: 0.8s;
+    transform: scale(1.03);
+    cursor: pointer;
+}
+#michelin:hover {
+    transition: 0.8s;
+    transform: scale(1.03);
+    cursor: pointer;
+}
+.hover:hover {
+    display: block;
+}
+#kumhoTextWrap {
+    position: relative;
+    bottom: 6vw;
+    left: 1vh;
+    z-index: 1;
+    color: white;
+}
+#kumhoText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#kumhoText > p:nth-child(1) {
+    font-size: x-large;
+    font-weight: bold;
+}
+#kumhoText > p:nth-child(2) {
+    font-size: xx-large;
+    font-weight: bold;
+}
+#nexenTextWrap {
+    position: relative;
+    bottom: 6vw;
+    left: 1vh;
+    z-index: 1;
+    color: white;
+}
+#nexenText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#nexenText > p:nth-child(1) {
+    font-size: x-large;
+    font-weight: bold;
+}
+#nexenText > p:nth-child(2) {
+    font-size: xx-large;
+    font-weight: bold;
+}
+#hankookTextWrap {
+    position: relative;
+    bottom: 6vw;
+    left: 1vh;
+    z-index: 1;
+    color: white;
+}
+#hankookText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#hankookText > p:nth-child(1) {
+    font-size: x-large;
+    font-weight: bold;
+}
+#hankookText > p:nth-child(2) {
+    font-size: xx-large;
+    font-weight: bold;
 }
 #continental {
     grid-column: 3 / 4;
@@ -212,6 +331,46 @@ main {
 }
 #continental > img {
     height: 82vh;
+}
+#continentalTextWrap {
+    position: relative;
+    bottom: 6vw;
+    left: 0.5vh;
+    z-index: 1;
+    color: white;
+}
+#continentalText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#continentalText > p:nth-child(1) {
+    font-size: x-large;
+    font-weight: bold;
+}
+#continentalText > p:nth-child(2) {
+    font-size: xx-large;
+    font-weight: bold;
+}
+#michelinTextWrap {
+    position: relative;
+    bottom: 6vw;
+    left: 1vh;
+    z-index: 1;
+    color: white;
+}
+#michelinText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#michelinText > p:nth-child(1) {
+    font-size: x-large;
+    font-weight: bold;
+}
+#michelinText > p:nth-child(2) {
+    font-size: xx-large;
+    font-weight: bold;
 }
 
 

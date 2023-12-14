@@ -21,17 +21,35 @@ close.addEventListener("click", function() {
 });
 
 // 로그인, 장바구니, 마이페이지를 클릭하면 해당 페이지로 이동 //
+// + 로그인 안했을때 장바구니, 마이페이지를 클릭하면 alert //
 const login = document.querySelector("#login");
 const cart = document.querySelector("#cart");
 const mypage= document.querySelector("#mypage");
-login.addEventListener("click", function() {
-    location.href = "/login";
-});
+if (login != null) {
+    login.addEventListener("click", function() {
+        location.href = "/login";
+    });
+}
 cart.addEventListener("click", function() {
-    location.href = "/";
+    if(login != null) {
+        window.alert("로그인 후 이용해주세요.");
+    } else {
+        const id = document.querySelector("#userid").value;
+        location.href = "/cart?id=" + id;
+    }
 });
 mypage.addEventListener("click", function() {
-    location.href = "/";
+    if(login != null) {
+        window.alert("로그인 후 이용해주세요.");
+    } else {
+        const id = document.querySelector("#userid").value;
+        location.href = "/mypage?id=" + id;    
+    }
 });
 
-// 인기 상품 hover시 상품명 띄우기 //
+// 로그아웃 //
+const logout = document.querySelector("#logout");
+logout.addEventListener("click", function() {
+    const form = document.forms.logout;
+    form.submit();
+});

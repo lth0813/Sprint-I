@@ -51,6 +51,14 @@ public class LoginController {
             return "redirect:/main";
         }
     }
+    // 로그아웃
+    @PostMapping("/main")
+    public String logout(
+        HttpSession session
+    ) {
+        session.invalidate();
+        return "redirect:/main";
+    }
 
     // 회원가입
     @GetMapping("/register")
