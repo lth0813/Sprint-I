@@ -1,3 +1,4 @@
+/* header */
 * {
     /* border: 1px solid white; */
     margin: 0;
@@ -133,27 +134,25 @@ header {
 }
 /* main */
 main {
-    width: 100%;
-    
-}
-/*섹션창*/
+    width: 100;
 
-
-/*마이페이지의 4개 섹션*/
-#mypageSection {
-    width: 100%;
-    color: gray;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+/*main - 마이페이지의 4개 섹션*/
+
 .mypagepart{
+    width: 70%;
     display: flex;
     flex-direction: row;
     align-items: end;
     border-bottom: 0.1vh solid darkgrey;
+    position: fixed;
+    top:12vh;
+    background-color: black;
 }
 .mypagelist {
     display:flex;
@@ -172,18 +171,24 @@ main {
 }
 .scroll_move{
     text-decoration-line: none;
-    width: 15vh;
+    width: 20vh;
     font-size: 2vh;
     font-weight: 500;
     color: lightgray; 
     /*background-color: yellow;*/
     margin-bottom: 1vh;
+    margin-right: 2vh;
 } 
+
+/*main-section 4개*/
+#mypageSection {
+    color: gray;
+}
+
 
 /*4개 섹션 공통사항*/
 .section{
-    width: 920px;
-    border-bottom: 0.1vh solid darkgrey;
+    width: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -193,22 +198,43 @@ main {
     font-size: 3vh;
     font-weight: 700;
     color: lightgray;
-    margin: 5vh 0vh 2vh 0vh;
+    margin-bottom: 3vh;
 }
-
+/*점핑박스*/
+#jumpingboxmodify{
+    height: 20vh;
+    width: 100vh;
+}
 /*회원정보수정*/
-#sectionBox form input {
+#modify {
+    width:100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 1.5vh;
+    background-color: #595D64;
+    margin-top:0vh;
+    border-radius: 5px;
+}
+#modify > .sectiontitle{
+    margin-top: 2vh;
+}
+#inputboxname{
+    font-size: 2vh;
+    color: white;
+
+}
+#sectionBox form input {
+    margin-bottom: 1vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     height: 5.5vh;
-    width: 60vh;
+    width: 80vh;
     font-weight: 700;
     border-radius: 1vh;
     font-size: 2vh;
-    line-height: 22px;
-    letter-spacing: 0.5px;
+    line-height: 0.5vh;
+    letter-spacing: 0.1vh;
     outline: none;
     color: darkgrey;
     background-color: white;
@@ -218,15 +244,6 @@ main {
     box-shadow: 0 4px 8px 0 rgba(16, 16, 16, 0.2);
     border: 1px solid #0F222D;
 }
-#modify {
-    width:650px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: #595D64;
-    margin-top:30px;
-    border-radius: 20px;
-}
 #sectionBox form input:focus,
 #sectionBox form input:active {
     border: none;
@@ -235,18 +252,16 @@ main {
     border: 2px solid #0F222D;
     font-size: 3vh;
 }
-
 #sectionBox form button{
     margin-top: 2vh;
     height: 8vh;
-    width: 60vh;
+    width: 80vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     font-size: 3vh;
 }
-
 .w-btn {
     border: none;
     padding: 15px 30px;
@@ -256,122 +271,90 @@ main {
     font-weight: 600;
     transition: 0.25s;
 }
-
 .w-btn-indigo {
     background-color: #0F222D;
     color: white;
 }
-
 .w-btn:hover {
 
     transform: scale(1.1);
     cursor: pointer;
 }
-
 .w-btn-outline:hover {
 
     transform: scale(1.1);
     cursor: pointer;
 }
-
 .w-btn:active {
     transform: scale(1.1);
 }
-
 #modifyButton{
     margin-bottom: 5vh;
 }
+/*점핑박스*/
+#jumpingboxmyorder{
+    height: 20vh;
+    width: 100vh;
+}
 /*구매내역조회*/
-#cartSection {
-    width: 100%;
-    color: gray;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.cartpart{
-    width: 99vh;
-    font-size: 3vh;
-    font-weight: 700;
-    color: lightgray;
-    background-color: black;
-    margin-bottom: 1vh;
-}
-
-
-table {
-    border-bottom: solid 0.5vh gray;
-    width: 100vh;
-    font-size: 2vh;
-    margin-bottom: 10vh;
-  }
-
-#tablehead{
-    background-color: gray;
-    color: white;
-    text-align: center;
-}
-
-td{
-    border-top: 0.1vh solid gray;
-}
-
-
-
-.orderdetail{
-    width: 50vh;
-}
-
-.noData{
+/*구매내역조회 - 구매내역이 없을 경우*/
+.myordernoData{
     font-size: 2.5vh;
     text-align: center;
     padding: 3vh 0vh 3vh 0vh;
 }
-
-.productimage{
+/*구매내역조회 - 구매내역이 있을 경우*/
+/*구매내역조회 - table*/
+.myorderList {
+    border-bottom: solid 0.5vh gray;
+    width: 100vh;
+    font-size: 2vh;
+  }
+/*구매내역조회 - table - 헤더부분*/
+#myordertablehead th{
+    background-color: gray;
+    color: white;
+    text-align: center;
+    border-top: 0.1vh solid gray;
+}
+/*구매내역조회 - table -행 사이의 간격*/
+.myorderList td{
+    border-top: 0.1vh solid gray;
+}
+/*구매내역조회 - table - td의 넓이 및 간격줄*/
+.myordertableimage{
     width: 15vh;
 }
-
-.productname{
-    width: 30vh;
+.myordertablename{
+    width: 35vh;
+    border-right: 0.1vh solid gray; 
 }
-
-.productname > a{
+.myordertabledate{
+    width: 13vh;
+    text-align: center;
+    border-right: 0.1vh solid gray; 
+}
+.myordertablecount{
+    width: 7vh;
+    text-align: center;
+    border-right: 0.1vh solid gray; 
+}
+.myordertableprice{
+    width: 20vh;
+    text-align: center;
+    border-right: 0.1vh solid gray; 
+}
+/*구매내역조회 - table-상품명의 링크*/
+.myordertablename > a{
     text-decoration-line: none;
     color: darkgrey ;
 }
-
-img{
+/*구매내역조회 - table-이미지 크기*/
+.myordertableimage > img{
     width: 15vh;
     height: 15vh;
     margin: 0;
 }
-
-.orderdate{
-    width: 15vh;
-    text-align: center;
-    border-left: 0.1vh solid gray;
-}
-
-.count{
-    width: 8vh;
-    border-left: 0.1vh solid gray;
-    text-align: center;
-}
-
-.price{
-    width: 15vh;
-    border-left: 0.1vh solid gray;
-    text-align: center;
-}
-.insert{
-    border-left: 0.1vh solid gray;
-    text-align: center;
-
-}
-
 /*리뷰작성 버튼*/
 .insertBtn {
     width: 10vh;
@@ -389,136 +372,155 @@ img{
     text-align: center;
     margin-left: 0.5vh;
 }
-
-
 .insertBtn:hover {
-
     transform: scale(1.1);
     cursor: pointer;
 }
-
 .insertBtn:active {
-
     transform: scale(1.1);
     cursor: pointer;
 }
-
-/*내가 쓴 리뷰*/
-#cartSection {
-    width: 100%;
-    color: gray;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.cartpart{
-    width: 99vh;
-    font-size: 3vh;
-    font-weight: 700;
-    color: lightgray;
-    background-color: black;
-    margin-bottom: 1vh;
-}
-
-
-table {
-    border-bottom: solid 0.5vh gray;
+/*점핑박스*/
+#jumpingboxmyreview{
+    height: 20vh;
     width: 100vh;
-    font-size: 2vh;
-    margin-bottom: 10vh;
-  }
-
-#tablehead{
-    background-color: gray;
-    color: white;
-    text-align: center;
 }
 
-td{
-    border-top: 0.1vh solid gray;
-}
-
-
-
-.orderdetail{
-    width: 50vh;
-}
-
-.noData{
+/*내가쓴리뷰*/
+/*내가쓴리뷰 - 내가쓴리뷰 없을 경우*/
+.myreviewnoData{
     font-size: 2.5vh;
     text-align: center;
     padding: 3vh 0vh 3vh 0vh;
 }
-
-.productimage{
+/*내가쓴리뷰 - 내가쓴리뷰 있을 경우*/
+/*내가쓴리뷰 - table*/
+.myreviewList {
+    border-bottom: solid 0.5vh gray;
+    width: 100vh;
+    font-size: 2vh;
+  }
+/*내가쓴리뷰 - table - 헤더부분*/
+#myreviewtablehead th{
+    background-color: gray;
+    color: white;
+    text-align: center;
+    border-top: 0.1vh solid gray;
+}
+/*내가쓴리뷰 - table -행 사이의 간격*/
+.myreviewList td{
+    border-top: 0.1vh solid gray;
+}
+/*내가쓴리뷰 - table - td의 넓이 및 간격줄*/
+.myreviewtableimage{
     width: 15vh;
 }
-
-.productname{
-    width: 30vh;
+.myreviewtablename{
+    width: 35vh;
+    border-right: 0.1vh solid gray; 
+}
+.myreviewtabledate{
+    width: 13vh;
+    text-align: center;
+    border-right: 0.1vh solid gray; 
+}
+.myreviewtablereviewcontent{
+    width: 27vh;
+    text-align: center;
+    border-right: 0.1vh solid gray; 
 }
 
-.productname > a{
+/*내가쓴리뷰 - table-상품명의 링크*/
+.myreviewtablename > a{
     text-decoration-line: none;
     color: darkgrey ;
 }
-
-img{
+/*내가쓴리뷰 - table-이미지 크기*/
+.myreviewtableimage > img{
     width: 15vh;
     height: 15vh;
     margin: 0;
 }
 
-.orderdate{
-    width: 15vh;
-    text-align: center;
-    border-left: 0.1vh solid gray;
+/*점핑박스*/
+#jumpingboxmysearch{
+    height: 20vh;
+    width: 100vh;
 }
 
 
-.reviewcontent{
-    width: 23vh;
-    border-left: 0.1vh solid gray;
+/*상품검색내역*/
+/*상품검색내역 - 상품검색내역 없을 경우*/
+.mysearchnoData{
+    font-size: 2.5vh;
     text-align: center;
+    padding: 3vh 0vh 3vh 0vh;
 }
-.insert{
-    border-left: 0.1vh solid gray;
-    text-align: center;
-
-}
-
-/*리뷰작성 버튼*/
-.insertBtn {
-    width: 10vh;
-    height: 4vh;
-    appearance: none;
-    border: none;
-    padding: 1vh 1.5vh;
-    border-radius: 15px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
+/*상품검색내역 - 상품검색내역 있을 경우*/
+/*상품검색내역 - table*/
+.mysearchList {
+    border-bottom: solid 0.5vh gray;
+    width: 100vh;
+    font-size: 2vh;
+  }
+/*상품검색내역 - table - 헤더부분*/
+#mysearchtablehead th{
     background-color: gray;
     color: white;
-    font-size: 1.5vh;
     text-align: center;
-    margin-left: 0.5vh;
+    border-top: 0.1vh solid gray;
+}
+/*상품검색내역 - table -행 사이의 간격*/
+.mysearchList td{
+    border-top: 0.1vh solid gray;
+}
+/*상품검색내역 - table - td의 넓이 및 간격줄*/
+.mysearchtableimage{
+    width: 15vh;
+}
+.mysearchtablename{
+    width: 75vh;
+    border-right: 0.1vh solid gray; 
 }
 
 
-.insertBtn:hover {
-
-    transform: scale(1.1);
-    cursor: pointer;
+/*상품검색내역 - table-상품명의 링크*/
+.mysearchtablename > a{
+    text-decoration-line: none;
+    color: darkgrey ;
+}
+/*상품검색내역 - table-이미지 크기*/
+.mysearchtableimage > img{
+    width: 15vh;
+    height: 15vh;
+    margin: 0;
 }
 
-.insertBtn:active {
 
-    transform: scale(1.1);
-    cursor: pointer;
+/*패딩박스-맨 아래 푸터 바로 위*/
+#paddingboxbottom{
+    height: 20vh;
+    width: 100vh;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* footer */
 footer {

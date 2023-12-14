@@ -255,6 +255,9 @@ footer {
 }
 
 /*리뷰등록 버튼*/
+.orderBtns{
+    margin-left: 35vh;
+}
 .reviewResisterBtn {
     margin: 3vh 0vh 3vh 0vh;
     font-size: 3vh;
