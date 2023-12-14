@@ -347,4 +347,8 @@ public class LoginController {
         }
         return "redirect:/mypage?id="+id;
     }
+    @GetMapping("/product")
+    public String product() {
+        return "/html/product";
+    }
 }

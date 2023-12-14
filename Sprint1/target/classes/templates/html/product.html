@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EV TIRE MALL</title>
   <link rel="stylesheet" href="./css/product.css">
   <link rel="icon" href="./images/favicon.jpg" type="image/x-icon">
@@ -23,23 +24,13 @@
                 </div>
             </section>
             <section id="user"> <!-- user -->
-                
-                <th:block th:if="${session.user} == null">
-                    <div id="login">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
-                            <path d="M7.5 1v7h1V1h-1z"/>
-                            <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
-                        </svg>
-                        <p>로그인</p>
-                    </div>
-                </th:block>
-
-                <th:block th:if="${session.user} != null">
-                    <div id="logout">
-                        <p>[[${session.user.name}]]님, 환영합니다!</p>
-                    </div>
-                </th:block>
-
+                <div id="login">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                        <path d="M7.5 1v7h1V1h-1z"/>
+                        <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+                    </svg>
+                    <p>로그인</p>
+                </div>
                 <div id="cart">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
@@ -77,40 +68,31 @@
         <br>
         <br>
         <section id="cartSection"> <!-- cart 장바구니 -->
-            <div class="cartpart">장바구니</div><!-- 페이지 제목 -->
+            <div class="cartpart">상품정보</div><!-- 페이지 제목 -->
             <div class="cartInformation">
            <form>
-                <table class="cartList">
-                    <tr id="tablehead">  
-                        <th class="productdetail" colspan="2">상품정보</td>  
-                        <th class="count">수량</td>
-                        <th class="price">주문금액</td>
-                    </tr>
-                    <tr class="cartListDetail"> 
-                        <td class="productimage"><img src="image/keyboard.jpg"></td> 
-                        <td class="productname"><a href="#">상품명입니다.</a></td>
-                        <td class="count">1</td>
-                        <td class="price">200,000원</td>
-                    </tr>
-                </table>
-                <div class="orderBtns">
-                    <button class="cartBigorderbtn">총 결제하기</button>
-                </div>
+            <table class="cartList">
+                <tr id="tablehead">
+                    <th class="productdetail" colspan="2">상품정보</th>
+                    <th class="countname">수량</th>
+                    <th class="pricename">주문금액</th>
+                </tr>
+                <tr class="cartListDetail">
+                    <td class="productimage"><img src="image/keyboard.jpg"></td>
+                    <td class="productname"><a href="#">상품명입니다.</a></td>
+                    <td class="count">4</td>
+                    <td class="price">100,000원</td>
+                </tr>
+            </table>
+            <div class="orderBtns">
+                <button type="button" class="cartBigorderbtn">총 결제하기</button>
+            </div>
                 
-                <!-- 모달 -->
-                <!-- <div id="ordermodal" class="modal">
-                    <div class="totalpay">
-                        <span class="close">&times;</span>
-                        
-                        <div class="orderBtns">
-                            <button class="cartBigorderbtn">구매내역 조회</button>
-                        </div>
-                    </div>
-                </div> -->
         </section>
     </main>
-
 </form>
+
+
 
     <footer> <!-- footer -->
         <div id="introduce">
@@ -133,37 +115,39 @@
 
     <!-- 구매완료 모달 --> 
     <div id="buyO"> 
-        <div class="x">
+        <div id="buyOX">
             <p>&#215;</p>
         </div>
-        <div id="buyOTitle"> <!-- #buyOTitle -->
-            <div id="buyOTitleWrap"> <!-- #buyOTitleWrap -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
-                    <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
-                    <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
-                </svg>
-                <p>구매완료</p>
-            </div>
-        </div>
-        <div id="buyOGoods"> <!-- #buyOGoods -->
-            <div id="buyOGoodsWrap"> <!-- #buyOGoodsWrap -->
-                <div id="buyOGoodsImg"> <!-- #buyOGoodsImg -->
-                    <img src="">
-                </div>
-                <div id="buyOGoodsDetail"> <!-- #buyOGoodsDetail -->
-                    <p>상품명 :&nbsp;</p>
-                    <p>가격 :&nbsp;</p>
-                    <p>수량 :&nbsp;</p>
-                    <p>총 결제 금액 :&nbsp;</p>
+        <div id="buyOWrap"> <!-- #buyOWrap -->
+            <div id="buyOTitle"> <!-- #buyOTitle -->
+                <div id="buyOTitleWrap"> <!-- #buyOTitleWrap -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+                    </svg>
+                    <p>구매완료</p>
                 </div>
             </div>
-        </div>
-        <div id="buyOText"> <!-- #buyOText -->
-            <p>회원님께서 주문하신 상품의 구매가</p>
-            <p>완료되었습니다.</p>
-        </div>
-        <div id="buyObtn"> <!-- #buyObtn -->
-            <button type="submit">구매내역조회</button>
+            <div id="buyOGoods"> <!-- #buyOGoods -->
+                <div id="buyOGoodsWrap"> <!-- #buyOGoodsWrap -->
+                    <div id="buyOGoodsImg"> <!-- #buyOGoodsImg -->
+                        <img src="">
+                    </div>
+                    <div id="buyOGoodsDetail"> <!-- #buyOGoodsDetail -->
+                        <p>상품명 :&nbsp;</p>
+                        <p>가격 :&nbsp;</p>
+                        <p>수량 :&nbsp;</p>
+                        <p>총 결제 금액 :&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+            <div id="buyOText"> <!-- #buyOText -->
+                <p>회원님께서 주문하신 상품의 구매가</p>
+                <p>완료되었습니다.</p>
+            </div>
+            <div id="buyObtn"> <!-- #buyObtn -->
+                <button type="submit">구매내역조회</button>
+            </div>
         </div>
     </div>
 
@@ -393,5 +377,7 @@
         </form>
     </div>
 <script src="./js/product.js"></script>
+<script src="./js/order.js"></script>
+
 </body>
 </html>
