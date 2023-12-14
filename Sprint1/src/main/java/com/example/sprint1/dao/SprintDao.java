@@ -182,4 +182,10 @@ public class SprintDao {
             queryBuilder.append(")");
         }
     }
+
+
+    public void updateUser(String pw, String name, String phonenum, String email, String id) {
+        String sqlStmt = String.format("UPDATE user_list SET password='%s', name='%s', phonenumber='%s', email='%s' WHERE id = '%s'", pw, name, phonenum, email, id);
+        jt.execute(sqlStmt);
+    }
 }

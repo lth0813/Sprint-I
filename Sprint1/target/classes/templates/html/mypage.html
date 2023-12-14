@@ -69,11 +69,12 @@
                 <div id="modify">
                     <div class="sectiontitle">회원정보수정</div><!-- 회원정보수정section제목 -->
                     <div id="sectionBox">
-                        <form method="post" action="#">
+                        <form method="post">
                             <input type="password" name="pw"  placeholder="  Your Password"  autocomplete="off">
-                            <input type="text" name="name"  th:value="'&nbsp;&nbsp;'+${session.user.name}"  autocomplete="off">
-                            <input type="text" name="phonenum"  th:value="'&nbsp;&nbsp;'+${session.user.phonenumber}"  autocomplete="off">
-                            <input type="text" name="email"  th:value="'&nbsp;&nbsp;'+${session.user.email}"  autocomplete="off">
+                            <input type="text" name="name"  th:value="${session.user.name}"  autocomplete="off">
+                            <input type="text" name="phonenum"  th:value="${session.user.phonenumber}"  autocomplete="off">
+                            <input type="text" name="email"  th:value="${session.user.email}"  autocomplete="off">
+                            <!-- <input type="hidden" name="id" th:value="${session.user.id}"> -->
                             <button class="w-btn w-btn-indigo" type="submit" id="modifyButton" onclick="javascript:modifybtn()">수정</button>
                         </form>
                     </div>

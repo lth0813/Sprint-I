@@ -314,4 +314,19 @@ public class LoginController {
         model.addAttribute("search", search);
         return "/html/mypage";
     }
+
+    @PostMapping("/mypage")
+    public String mypagePost(
+        @RequestParam("pw") String pw,
+        @RequestParam("name") String name,
+        @RequestParam("phonenum") String phonenum,
+        @RequestParam("email") String email,
+        @RequestParam("id") String id,
+        HttpSession session
+    ) {
+        sprintDao.updateUser(pw, name, phonenum, email, id);
+        Map<String,Object> user = sprintDao.login(id,pw).get(0);
+        session.setAttribute("user", user);
+        return "redirect:/mypage?id="+id;
+    }
 }
