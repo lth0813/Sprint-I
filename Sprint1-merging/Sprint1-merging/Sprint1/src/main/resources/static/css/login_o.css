@@ -1,0 +1,583 @@
+* {
+    /* border: 1px solid white; */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 100%;
+    height: fit-content;
+    padding-top: 12vh;
+    background-color: black;
+}
+
+/* header */
+header {
+    display: flex;
+    width: 100%;
+    height: 12vh;
+    position: fixed;
+    top: 0;
+	z-index: 100;
+    background-color: black;
+}
+
+#logoSearch {
+    display: flex;
+    width: 60%;
+    height: 100%;
+}
+
+#logo {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+#logo > img {
+    width: 41%;
+    height: 25%;
+    cursor: pointer;
+}
+
+#search {
+    display: flex;
+    align-items: center;
+    width: 55%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0 0 0 2%;
+}
+#search > form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    height: 30%;
+    border: 2px solid gray;
+    padding: 0 2%;
+    border-radius: 100px;
+}
+#search > form > input {
+    width: 90%;
+    height: 70%;
+    font-size: medium;
+    border: 0;
+    padding: 0 2% 0 0;
+    background-color: black;
+    color: lightgray;
+}
+#search > form > input:focus {
+    outline: none;
+}
+#search > form > input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+#search > form > button {
+    width: 5%;
+    height: 70%;
+    border: 0;
+    border: 0;
+    background-color: black;
+    cursor: pointer;
+}
+#search > form > button > svg {
+    width: 100%;
+    height: 100%;
+    color: lightgray;
+}
+
+#user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 100%;
+    padding: 0 1%;
+}
+#user > * {
+    margin: 1%;
+}
+
+#welcome {
+    color: gray;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    font-size: small;
+}
+#welcome > p:nth-child(1) {
+    font-weight: bold;
+}
+
+#logout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+#logout > * {
+    margin: 1% 0 0 0; 
+}
+#logout > svg {
+    width: 1.5vw;
+    height: 2vh;
+    color: gray;
+}
+#logout > p {
+    width: max-content;
+    height: max-content;
+    font-size: small;
+    color: gray;
+}
+
+#cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+#cart > * {
+    margin: 1% 0 0 0;
+}
+#cart > svg {
+    width: 1.5vw;
+    height: 2vh;
+    color: gray;
+}
+#cart > p {
+    width: max-content;
+    height: max-content;
+    font-size: small;
+    color: gray;
+}
+
+#mypage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+#mypage > * {
+    margin: 1% 0 0 0;
+}
+#mypage > svg {
+    width: 1.5vw;
+    height: 2vh;
+    color: gray;
+}
+#mypage > p {
+    width: max-content;
+    height: max-content;
+    font-size: small;
+    color: gray;
+}
+
+/* main */
+main {
+    width: 100%;
+    height: fit-content;
+}
+/* ad */
+#ad {
+    width: 100%;
+    height: 720px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sliderImg {
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+}
+.sliderInner {
+    display: flex;
+    width: 6400px;
+    height: 720px;
+}
+.slider {
+    width: 1280px;
+    height: 720px;
+}
+/* detailSearch */
+#detailSearch {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    padding: 2vw 15vh;
+    box-sizing: border-box;
+    color: lightgray;
+}
+/* choice */
+#choice {
+    width: 40%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    margin: 0 5vh 0 0;
+}
+#choiceTitle {
+    width: 100%;
+    height: fit-content;
+    padding: 2% 2vh;
+    box-sizing: border-box;
+    font-size: large;
+    font-weight: bold;
+    background-color: gray;
+    color: black;
+}
+
+#manufacture {
+    display: flex;
+    width: 100%;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    height: fit-content;
+}
+#manufacture > form {
+    width: 85%;
+    height: fit-content;
+}
+#manufactureTitle {
+    width: 15%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid gray;
+    font-size: medium;
+    font-weight: bold;
+}
+#manufactureCheck {
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    height: 5vh;
+    align-items: center;
+    font-size: small;
+}
+#manufactureCheck > li {
+    margin: 0 1vh;
+}
+#manufactureCheck > li > input[type=checkbox] {
+    zoom: 0.8;
+}
+
+#car {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid gray;
+    height: fit-content;
+}
+#car > form {
+    width: 85%;
+    height: fit-content;
+}
+#carTitle {
+    width: 15%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid gray;
+    font-size: medium;
+    font-weight: bold;
+}
+#carCheck {
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    height: 5vh;
+    align-items: center;
+    font-size: small;
+}
+#carCheck > li {
+    margin: 0 1vh;
+}
+#carCheck > li > input[type=checkbox] {
+    zoom: 0.8;
+}
+
+#character {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid gray;
+    height: fit-content;
+}
+#character > form {
+    width: 85%;
+    height: fit-content;
+}
+#characterTitle {
+    width: 15%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid gray;
+    font-size: medium;
+    font-weight: bold;
+}
+#characterCheck {
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    height: 5vh;
+    align-items: center;
+    font-size: small;
+}
+#characterCheck > li {
+    margin: 0 1vh;
+}
+#characterCheck > li > input[type=checkbox] {
+    zoom: 0.8;
+}
+
+#mm {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid gray;
+    height: fit-content;
+}
+#mm > form {
+    width: 85%;
+    height: fit-content;
+}
+#mmTitle {
+    width: 15%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid gray;
+    font-size: medium;
+    font-weight: bold;
+}
+#mmCheck {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10vh;
+}
+#mmCheck1 {
+    display: flex;
+    width: 100%;
+    height: 3vh;
+    align-items: center;
+    font-size: small;
+}
+#mmCheck1 > li {
+    margin: 0 1vh;
+}
+#mmCheck1 > li > input[type=checkbox] {
+    zoom: 0.8;
+}
+#mmCheck2 {
+    display: flex;
+    width: 100%;
+    height: 3vh;
+    align-items: center;
+    font-size: small;
+}
+#mmCheck2 > li {
+    margin: 0 1vh;
+}
+#mmCheck2 > li > input[type=checkbox] {
+    zoom: 0.8;
+}
+#mmCheck3 {
+    display: flex;
+    width: 100%;
+    height: 3vh;
+    align-items: center;
+    font-size: small;
+}
+#mmCheck3 > li {
+    margin: 0 1vh;
+}
+#mmCheck3 > li > input[type=checkbox] {
+    zoom: 0.8;
+}
+
+#percent {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid gray;
+    height: fit-content;
+}
+#percent > form {
+    width: 85%;
+    height: fit-content;
+}
+#percentTitle {
+    width: 15%;
+    height: 6.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid gray;
+    font-size: medium;
+    font-weight: bold;
+}
+#percentCheck {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 6.5vh;
+}
+#percentCheck1 {
+    display: flex;
+    width: 100%;
+    height: 3vh;
+    align-items: center;
+    font-size: small;
+}
+#percentCheck1 > li {
+    margin: 0 1vh;
+}
+#percentCheck1 > li > input[type=checkbox] {
+    zoom: 0.8;
+}
+#percentCheck2 {
+    display: flex;
+    width: 100%;
+    height: 3vh;
+    align-items: center;
+    font-size: small;
+}
+#percentCheck2 > li {
+    margin: 0 1vh;
+}
+#percentCheck2 > li > input[type=checkbox] {
+    zoom: 0.8;
+}
+
+#inch {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+}
+#inch > form {
+    width: 85%;
+    height: fit-content;
+}
+#inchTitle {
+    width: 15%;
+    height: 6.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid gray;
+    font-size: medium;
+    font-weight: bold;
+}
+#inchCheck {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 6.5vh;
+}
+#inchCheck1 {
+    display: flex;
+    width: 100%;
+    height: 3vh;
+    align-items: center;
+    font-size: small;
+}
+#inchCheck1 > li {
+    margin: 0 1vh;
+}
+#inchCheck1 > li > input[type=checkbox] {
+    zoom: 0.8;
+}
+#inchCheck2 {
+    display: flex;
+    width: 100%;
+    height: 3vh;
+    align-items: center;
+    font-size: small;
+}
+#inchCheck2 > li {
+    margin: 0 1vh;
+}
+#inchCheck2 > li > input[type=checkbox] {
+    zoom: 0.8;
+}
+/* result */
+#result {
+    width: 55%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+}
+#resultTitle {    
+    width: 100%;
+    height: fit-content;
+    padding: 1.2% 2vh;
+    box-sizing: border-box;
+    display: flex;
+    background-color: gray;
+    color: black;
+}
+#resultTitle > p:nth-child(1) {
+    font-size: large;
+    font-weight: bold;
+}
+#resultTitle > p:nth-child(3) {
+    font-weight: bold;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    height: fit-content;
+    color: gray;
+    display: flex;
+    padding: 1% 5vh;
+    box-sizing: border-box;
+    align-items: center;
+    border-top: 1px solid rgb(30, 30, 30);
+}
+/* introduce */
+#introduce {
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+}
+#introduce > * {
+    margin: 0.5% 0;
+}
+/* help */
+#help {
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+#help > * {
+    margin: 0.3% 0;
+}
+#help > p:nth-child(1) {
+    font-size: x-large ;
+}
