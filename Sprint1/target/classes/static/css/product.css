@@ -9,6 +9,7 @@ body {
     max-width: 100%;
     height: fit-content;
     padding-top: 12vh;
+    padding-bottom: 15vh;
     background-color: black;
 }
 
@@ -306,13 +307,17 @@ img{
 /* footer */
 footer {
     width: 100%;
-    height: fit-content;
+    height: 15vh;
     display: flex;
     box-sizing: border-box;
     border-top: 1px solid rgb(30, 30, 30);
     padding: 1% 1vh;
     font-size: small;
     color: gray;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    background-color: black;
 }
 #introduce {
     width: 50%;
