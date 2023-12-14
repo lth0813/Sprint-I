@@ -63,19 +63,23 @@ const minus = document.querySelector(".qtyminus");
     const plus = document.querySelector(".qtyplus");
     const qty = document.querySelector(".qty");
     const product_price = parseInt(document.querySelector(".product_price").innerHTML.replace(/,/g,''))
+    const product_qty = document.querySelector(".product_qty");
     const price = document.querySelector(".price")
     minus.addEventListener("click",() => {
         if (parseInt(qty.innerHTML) == 0) {
             qty.innerHTML = 0;
+            product_qty.value = qty.innerHTML;
         }
         else {
             qty.innerHTML -= 1;
             price.innerHTML = parseInt(qty.innerHTML) * product_price;
+            product_qty.value = qty.innerHTML;
         }
     })
     plus.addEventListener("click",() => {
         qty.innerHTML = parseInt(qty.innerHTML) +1;
         price.innerHTML = parseInt(qty.innerHTML) * product_price;
+        product_qty.value = qty.innerHTML;
     })
     const cartinsert = document.querySelector(".cart");
     const cartBtnLoginX = document.querySelector(".userid");
@@ -83,7 +87,6 @@ const minus = document.querySelector(".qtyminus");
         if(logout != null) {
             if(parseInt(qty.innerHTML)<1){
                 alert("수량을 선택해주세요");
-                return false;
             } else {
                 cartO.style.display = "block";
             }
@@ -92,14 +95,15 @@ const minus = document.querySelector(".qtyminus");
         }
     });
     const orderinsert = document.querySelector(".purchase");
-    orderinsert.addEventListener("click",() => {
+    orderinsert.addEventListener("click",(e) => {
         if(logout != null) {
             if(parseInt(qty.innerHTML)<1){
                 alert("수량을 선택해주세요");
-                return false;
+                e.preventDefault();
             }
         } else {
             window.alert("로그인 후 이용해주세요.");
+            e.preventDefault();
         }
     });
 

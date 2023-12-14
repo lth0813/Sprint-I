@@ -19,6 +19,10 @@ function calculateButton() {
     // 총 주문금액을 표시하는 요소 가져와서 값 업데이트
     var orderBtn = document.querySelector('.cartBigorderbtn');
     orderBtn.innerText = `총 ${total.toLocaleString()}원 결제하기`;
+
+    // 모달 쪽 총 금액 설정
+    totalprice = document.querySelector(".totalprice");
+    totalprice.innerText += `${total.toLocaleString()}원`;
 }
 
 // 수량이 변경될 때마다 calculateButton 함수 호출

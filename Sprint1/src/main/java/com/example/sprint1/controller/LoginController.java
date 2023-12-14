@@ -348,7 +348,32 @@ public class LoginController {
         return "redirect:/mypage?id="+id;
     }
     @GetMapping("/product")
-    public String product() {
+    public String product(
+        @RequestParam(name = "seq",required = false) String seq,
+        @RequestParam(name = "qty",required = false) String qty,
+        @RequestParam(name = "detail",required = false) String detail,
+        @RequestParam(name = "modal",required = false) String modal,
+        Model model
+    ) {
+        if (detail != null) {
+            Map<String,Object> product = sprintDao.selectProduct(seq).get(0);
+            model.addAttribute("detail",detail);
+            model.addAttribute("qty",qty);
+            model.addAttribute("product", product);
+            model.addAttribute("modal", modal);
+        }
         return "/html/product";
+    }
+
+    @PostMapping("/product")
+    public String productPost(
+        @RequestParam(name = "seq",required = false) String seq,
+        @RequestParam(name = "qty",required = false) String qty,
+        @RequestParam(name = "detail",required = false) String detail,
+        @RequestParam(name = "modal",required = false) String modal,
+        @RequestParam(name = "id",required = true) String id
+    ) {
+        sprintDao.insertPurchaseHistory(seq, id, qty);
+        return String.format("redirect:/product?seq=%s&qty=%s&detail=%s&modal=%s",seq,qty,detail,modal);
     }
 }

@@ -21,12 +21,21 @@ close.addEventListener("click", function() {
 });
 
 // 결제하기 버튼을 누르면 구매완료 모달창 띄우기 //
+// const modal2 = document.querySelector("#buyO");
+// const modalButton2 = document.querySelector(".cartBigorderbtn");
+// modalButton2.addEventListener("click", function() {
+//     modal2.style.display = "block";
+//     blur.style.opacity = "0.5";
+// });
+
+// 구매내역 insert를 위한 모달창 띄우기 재설정 //
 const modal2 = document.querySelector("#buyO");
-const modalButton2 = document.querySelector(".cartBigorderbtn");
-modalButton2.addEventListener("click", function() {
+const checkmodal = document.querySelector(".modal");
+if (checkmodal != null) {
+    if (checkmodal.innerHTML == "O") {
     modal2.style.display = "block";
     blur.style.opacity = "0.5";
-});
+}}
 
 // 구매완료 모달창 닫기 버튼 //
 const close2 = document.querySelector("#buyOX > p");

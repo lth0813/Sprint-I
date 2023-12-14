@@ -41,7 +41,12 @@
                                 <input class="userid" type="hidden" th:value="${session.user.id}">
                             </th:block>
                             <button type="button" class="cart">장바구니</button>
-                            <button type="button" class="purchase">구매하기</button>
+                            <form action="/product" method="get">
+                                <input type="hidden" th:value="${product.seq}" name="seq">
+                                <input class="product_qty" type="hidden" name="qty">
+                                <input type="hidden" value="O" name="detail">
+                                <button type="submit" class="purchase">구매하기</button>
+                            </form>
                         </div>
                     </div>
                     <div class="main-spec">
