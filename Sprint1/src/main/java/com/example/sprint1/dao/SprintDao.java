@@ -76,14 +76,14 @@ public class SprintDao {
     }
     // 본인이 쓴 리뷰 확인
     public List<Map<String,Object>> selectReview(String id) {
-        String sqlStmt = String.format("SELECT h.purchase_date, l.product_image, l.product_name, l.product_price, r.content FROM purchase_history h, tire_list l, review r WHERE r.id = '%s' AND r.seq = l.seq AND r.seq = h.seq",id);
+        String sqlStmt = String.format("SELECT l.seq, r.review_seq, h.purchase_date, l.product_image, l.product_name, l.product_price, r.content FROM purchase_history h, tire_list l, review r WHERE r.id = '%s' AND r.seq = l.seq AND r.seq = h.seq ORDER BY r.review_seq DESC",id);
         return jt.queryForList(sqlStmt);
     }
 
 // 검색 이력
     // 본인 검색 이력 확인
     public List<Map<String,Object>> selectSearchHistory(String id) {
-        String sqlStmt = String.format("SELECT l.product_name, l.product_image, l.seq FROM search_history h, tire_list l WHERE h.id = '%s' AND h.seq = l.seq;",id);
+        String sqlStmt = String.format("SELECT h.search_seq, l.product_name, l.product_image, l.seq FROM search_history h, tire_list l WHERE h.id = '%s' AND h.seq = l.seq ORDER BY h.search_seq DESC;",id);
         return jt.queryForList(sqlStmt);
     }
     // 검색 이력 insert
@@ -100,7 +100,7 @@ public class SprintDao {
 // 구매 이력
     // 본인 구매 이력 확인
     public List<Map<String,Object>> selectPurchaseHistory(String id) {
-        String sqlStmt = String.format("SELECT h.*, l.product_image, l.product_name, l.product_price FROM purchase_history h, tire_list l WHERE h.id = '%s' AND h.seq = l.seq;",id);
+        String sqlStmt = String.format("SELECT h.*, l.product_image, l.product_name, l.product_price, l.seq FROM purchase_history h, tire_list l WHERE h.id = '%s' AND h.seq = l.seq ORDER BY h.purchase_seq DESC;",id);
         return jt.queryForList(sqlStmt);
     }
     // 구매 이력 insert

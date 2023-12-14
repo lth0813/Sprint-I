@@ -317,16 +317,26 @@ public class LoginController {
 
     @PostMapping("/mypage")
     public String mypagePost(
-        @RequestParam("pw") String pw,
-        @RequestParam("name") String name,
-        @RequestParam("phonenum") String phonenum,
-        @RequestParam("email") String email,
-        @RequestParam("id") String id,
+        @RequestParam(name ="pw",required = false) String pw,
+        @RequestParam(name = "name",required = false) String name,
+        @RequestParam(name = "phonenum",required = false) String phonenum,
+        @RequestParam(name = "email",required = false) String email,
+        @RequestParam(name = "id",required = false) String id,
+        @RequestParam(name = "review_seq",required = false) String review_seq,
+        @RequestParam(name = "search_seq",required = false) String search_seq,
         HttpSession session
     ) {
-        sprintDao.updateUser(pw, name, phonenum, email, id);
-        Map<String,Object> user = sprintDao.login(id,pw).get(0);
-        session.setAttribute("user", user);
+        if (pw != null && name != null && phonenum != null && email != null) {
+            sprintDao.updateUser(pw, name, phonenum, email, id);
+            Map<String,Object> user = sprintDao.login(id,pw).get(0);
+            session.setAttribute("user", user);
+        }
+        if (review_seq != null) {
+            sprintDao.deleteReview(review_seq);
+        }
+        if (search_seq != null) {
+            sprintDao.deleteSearchHistory(search_seq);
+        }
         return "redirect:/mypage?id="+id;
     }
 }

@@ -100,11 +100,13 @@
                             
                             <tr class="orderListDetail" th:each="purchase : ${purchase}">
                                 <td class="productimage"><img th:src="${purchase.product_image}" class="img"></td> 
-                                <td class="productname"><a href="#">[[${purchase.product_name}]]</a></td>
+                                <td class="productname"><a th:href="'/detail?seq='+${purchase.seq}+'&id='+${session.user.id}">[[${purchase.product_name}]]</a></td>
                                 <td class="orderdate">[[${purchase.purchase_date}]]</td>
                                 <td class="count">[[${purchase.purchase_qty}]]</td>
                                 <td class="price">[[${purchase.product_price}]]</td>
-                                <td class="insert"><button type="submit" class="insertBtn">리뷰작성</button></td>
+                                <td class="insert">
+                                    <a th:href="'/review?seq='+${purchase.seq}"><button type="submit" class="insertBtn">리뷰작성</button></a>
+                                </td>
                             </tr>
                         </th:block>
                     </table>
@@ -130,10 +132,15 @@
                 
                             <tr class="orderListDetail" th:each="review : ${review}"> 
                                 <td class="productimage"><img th:src="${review.product_image}" class="img"></td> 
-                                <td class="productname"><a href="#">[[${review.product_name}]]</a></td>
+                                <td class="productname"><a th:href="'/detail?seq='+${review.seq}+'&id='+${session.user.id}">[[${review.product_name}]]</a></td>
                                 <td class="orderdate">[[${review.purchase_date}]]</td>
                                 <td class="reviewcontent">[[${review.content}]]</td>
-                                <td class="insert"><button type="submit" class="insertBtn" onclick="javascript:orderdeletebtn()">삭제</button></td>
+                                <td class="insert">
+                                    <form method="post">
+                                        <input type="hidden" th:value="${review.review_seq}" name="review_seq">
+                                        <button type="submit" class="insertBtn" onclick="javascript:orderdeletebtn()">삭제</button>
+                                    </form>
+                                </td>
                             </tr>
                         </th:block>
                     </table>
@@ -157,7 +164,12 @@
                             <tr class="mysearchDetail" th:each="search : ${search}"> 
                                 <td class="productimage"><img th:src="${search.product_image}" class="img"></td> 
                                 <td class="productname"><a th:href="'/detail?seq='+${search.seq}+'&id='+${session.user.id}">[[${search.product_name}]]</a></td>
-                                <td class="insert"><button type="submit" class="insertBtn" onclick="javascript:searchdeletebtn()">삭제</button></td>
+                                <td class="insert">
+                                    <form method="post">
+                                        <input type="hidden" th:value="${search.search_seq}" name="search_seq">
+                                        <button type="submit" class="insertBtn" onclick="javascript:searchdeletebtn()">삭제</button>
+                                    </form>
+                                </td>
                             </tr>
                         </th:block>
                     </table>
