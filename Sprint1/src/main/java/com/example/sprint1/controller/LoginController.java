@@ -407,7 +407,7 @@ public class LoginController extends HttpServlet {
     ) {
         if (detail != null) {
             sprintDao.insertPurchaseHistory(seq, id, qty);
-            return String.format("redirect:/product?seq=%s&qty=%s&detail=%s&modal=%s&size=%s",seq,qty,detail,modal,cartsize);
+            return String.format("redirect:/product?seq=%s&qty=%s&detail=%s&modal=%s",seq,qty,detail,modal);
         }
         
         if (cart != null) {
