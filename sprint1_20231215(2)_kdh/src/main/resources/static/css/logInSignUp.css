@@ -116,7 +116,7 @@ input:active {
 button{
     margin-top: 3vh;
     height: 8vh;
-    width: 60vh;
+    width: 60.5vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -236,5 +236,5 @@ span{
 }
 
 #findpwologin{
-    margin-bottom: 5vh;
+    margin-bottom: 7vh;
 }
