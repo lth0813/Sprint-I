@@ -68,7 +68,7 @@
                                 <td class="myordertablename"><a th:href="'/detail?seq='+${purchase.seq}+'&id='+${session.user.id}">[[${purchase.product_name}]]</a></td>
                                 <td class="myordertabledate">[[${purchase.purchase_date}]]</td>
                                 <td class="myordertablecount">[[${purchase.purchase_qty}]]</td>
-                                <td class="myordertableprice">[[${purchase.product_price}]]</td>
+                                <td class="myordertableprice">[[${numbers.formatInteger(purchase.product_price,5)}]]*[[${numbers.formatInteger(purchase.purchase_qty,5)}]]</td>
                                 <td class="myordertableinsert">
                                     <a th:href="'/review?seq='+${purchase.seq}"><button type="submit" class="insertBtn">리뷰작성</button></a>
                                 </td>
