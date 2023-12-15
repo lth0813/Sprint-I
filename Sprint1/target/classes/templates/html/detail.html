@@ -176,40 +176,42 @@
     <div id="checkBox" th:replace="html/HFM.html::modal"></div>
     
     <!-- 장바구니에 상품 담기 완료 모달 -->
-    <div id="cartO"> 
-        <div id="cartOX">
-            <p>&#215;</p>
-        </div>
-        <div id="cartOWrap">
-            <div id="cartOTitle"> 
-                <div id="cartOTitleWrap"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
-                        <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
-                        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                    </svg>
-                    <p>장바구니에 담기 완료</p>
-                </div>
+    <th:block th:if="${session.user} != null">
+        <div id="cartO"> 
+            <div id="cartOX">
+                <p>&#215;</p>
             </div>
-            <div id="cartOGoods"> 
-                <div id="cartOGoodsWrap"> 
-                    <div id="cartOGoodsImg">
-                        <img th:src="${product.product_image}">
-                    </div>
-                    <div id="cartOGoodsDetail"> 
-                        <p>상품명 :&nbsp;[[${product.product_name}]]</p>
-                        <p>가격 :&nbsp;[[${product.product_price}]]</p>
-                        <th:block th:if="${qty} != null">
-                            <p>수량 :&nbsp;[[${qty}]]</p>
-                        </th:block>
-                        <p>총 금액 :&nbsp;</p>
+            <div id="cartOWrap">
+                <div id="cartOTitle"> 
+                    <div id="cartOTitleWrap"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
+                            <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                        </svg>
+                        <p>장바구니에 담기 완료</p>
                     </div>
                 </div>
-            </div>
-            <div id="cartObtn"> 
-                <a th:href="'/cart?id='+${session.user.id}"><button type="submit">장바구니로 이동</button></a>
+                <div id="cartOGoods"> 
+                    <div id="cartOGoodsWrap"> 
+                        <div id="cartOGoodsImg">
+                            <img th:src="${product.product_image}">
+                        </div>
+                        <div id="cartOGoodsDetail"> 
+                            <p>상품명 :&nbsp;[[${product.product_name}]]</p>
+                            <p>가격 :&nbsp;[[${product.product_price}]]</p>
+                            <th:block th:if="${qty} != null">
+                                <p>수량 :&nbsp;[[${qty}]]</p>
+                            </th:block>
+                            <p>총 금액 :&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="cartObtn"> 
+                    <a th:href="'/cart?id='+${session.user.id}"><button type="submit">장바구니로 이동</button></a>
+                </div>
             </div>
         </div>
-    </div>
+    </th:block>
 
 
     <script src="./js/detail.js"></script>

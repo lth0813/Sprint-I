@@ -30,17 +30,19 @@ if (login != null) {
         location.href = "/login";
     });
 }
-cart.addEventListener("click", function() {
-    if(login != null) {
+cart.addEventListener("click", function(e) {
+    if(login == null) {
         window.alert("로그인 후 이용해주세요.");
+        e.preventDefault();
     } else {
         const id = document.querySelector(".userid").value;
         location.href = "/cart?id=" + id;
     }
 });
-mypage.addEventListener("click", function() {
-    if(login != null) {
+mypage.addEventListener("click", function(e) {
+    if(login == null) {
         window.alert("로그인 후 이용해주세요.");
+        e.preventDefault();
     } else {
         const id = document.querySelector(".userid").value;
         location.href = "/mypage?id=" + id;    
@@ -63,23 +65,29 @@ const minus = document.querySelector(".qtyminus");
     const plus = document.querySelector(".qtyplus");
     const qty = document.querySelector(".qty");
     const product_price = parseInt(document.querySelector(".product_price").innerHTML.replace(/,/g,''))
-    const product_qty = document.querySelector(".product_qty");
+    const product_qty = document.querySelectorAll(".product_qty");
     const price = document.querySelector(".price")
     minus.addEventListener("click",() => {
         if (parseInt(qty.innerHTML) == 0) {
             qty.innerHTML = 0;
-            product_qty.value = qty.innerHTML;
+            for (let i = 0; i < product_qty.length; i++) {
+                product_qty[i].value = qty.innerHTML;
+            }  
         }
         else {
             qty.innerHTML -= 1;
             price.innerHTML = parseInt(qty.innerHTML) * product_price;
-            product_qty.value = qty.innerHTML;
+            for (let i = 0; i < product_qty.length; i++) {
+                product_qty[i].value = qty.innerHTML;
+            } 
         }
     })
     plus.addEventListener("click",() => {
         qty.innerHTML = parseInt(qty.innerHTML) +1;
         price.innerHTML = parseInt(qty.innerHTML) * product_price;
-        product_qty.value = qty.innerHTML;
+        for (let i = 0; i < product_qty.length; i++) {
+            product_qty[i].value = qty.innerHTML;
+        } 
     })
     const cartinsert = document.querySelector(".cart");
     const cartBtnLoginX = document.querySelector(".userid");
@@ -121,8 +129,9 @@ const minus = document.querySelector(".qtyminus");
 
 // 장바구니에 담기 완료 모달 닫기 //
 const cartOX = document.querySelector("#cartOX > p");
-cartOX.addEventListener("click", function() {
-    cartO.style.display = "none";
-    blur.style.opacity = "1";
-});
-
+if (cartOX != null) {
+    cartOX.addEventListener("click", function() {
+        cartO.style.display = "none";
+        blur.style.opacity = "1";
+    });
+}
