@@ -83,17 +83,29 @@ const minus = document.querySelector(".qtyminus");
     })
     const cartinsert = document.querySelector(".cart");
     const cartBtnLoginX = document.querySelector(".userid");
-    cartinsert.addEventListener("click",() => {
+    cartinsert.addEventListener("click",(e) => {
         if(logout != null) {
             if(parseInt(qty.innerHTML)<1){
                 alert("수량을 선택해주세요");
+                e.preventDefault();
             } else {
-                cartO.style.display = "block";
+                // cartO.style.display = "block";
+                return false;
             }
         } else {
             window.alert("로그인 후 이용해주세요.");
+            e.preventDefault();
         }
     });
+
+    const cartO = document.querySelector("#cartO");
+    const checkmodal = document.querySelector(".modal");
+    if (checkmodal != null) {
+        if (checkmodal.innerHTML == "O") {
+        cartO.style.display = "block";
+        blur.style.opacity = "0.5";
+    }}
+
     const orderinsert = document.querySelector(".purchase");
     orderinsert.addEventListener("click",(e) => {
         if(logout != null) {
@@ -109,8 +121,8 @@ const minus = document.querySelector(".qtyminus");
 
 // 장바구니에 담기 완료 모달 닫기 //
 const cartOX = document.querySelector("#cartOX > p");
-const cartO = document.querySelector("#cartO");
 cartOX.addEventListener("click", function() {
     cartO.style.display = "none";
+    blur.style.opacity = "1";
 });
 

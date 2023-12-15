@@ -6,6 +6,7 @@
 body {
     max-width: 100%;
     height: fit-content;
+    padding-bottom: 15vh;
     padding-top: 12vh;
     background-color: black;
 }
@@ -171,7 +172,7 @@ header {
 /* main */
 main {
     width: 100%;
-    
+ 
 }
 
 #cartSection {
@@ -372,16 +373,23 @@ img{
 .modal {
     display:none;
 }
+.cartmsg {
+    display:none;
+}
 /* footer */
 footer {
     width: 100%;
-    height: fit-content;
+    height: 15vh;
     display: flex;
     box-sizing: border-box;
     border-top: 1px solid rgb(30, 30, 30);
     padding: 1% 1vh;
     font-size: small;
     color: gray;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    background-color: black;
 }
 #introduce {
     width: 50%;
@@ -509,6 +517,12 @@ footer {
 #buyOGoodsDetail > * {
     margin: 0.5% 0;
     box-sizing: border-box;
+}
+.carttotalprice {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 #buyOText {
     width: 100%;

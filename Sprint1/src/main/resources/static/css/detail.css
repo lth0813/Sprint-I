@@ -245,7 +245,7 @@ footer {
 }
 .main-content {
     display:flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
 }
 .main-content-image {
@@ -263,7 +263,7 @@ footer {
 }
 .main-content-buy {
     width:20%;
-    margin-left:10px;
+    margin-left:3vh;
 }
 .main-content-buy-qty {
     display:flex;
@@ -657,9 +657,10 @@ td {
     color: white;
 }
 .totalprice{height:60px;}
-img{width:130px;
-    height:130px;
-    margin-right:10px;}
+img{width: 15vh;
+    height:15vh;
+    margin-right:5vh;
+    margin-left:7vh;}
 .main-content-product{height:130px;
                       width:720px;}
 #details{box-sizing: border-box;
@@ -685,12 +686,13 @@ h3{color:lightgrey;
 #review{margin-top:30px;}
 .main-content-buy{border:solid 1px lightgrey;}
 h2{color:lightgrey;
-   margin-bottom:30px;}
+   margin-bottom:30px;
+   margin-right:15vh;}
 .cart{border-top:solid 1px lightgrey;
-      width:210px;
+      width:100%;
       cursor: pointer;}
 .purchase{border-top:solid 1px lightgrey;
-          width:210px;
+          width:100%;
           cursor: pointer;}
 .totalprice{border-top:solid 1px lightgrey;}
 #goodsreview{font-size:18px;
@@ -731,7 +733,7 @@ h2{color:lightgrey;
     z-index: 10;
     position: fixed;
     position: relative;
-    bottom: 75vw;
+    bottom: 900px;
     left: 80vh;
 }
 #cartOX {
@@ -809,15 +811,16 @@ h2{color:lightgrey;
     margin: 0.5% 0;
     box-sizing: border-box;
 }
-#cartObtn {
+#cartObtn > a {
     width: 100%;
     height: fit-content;
     display: flex;
     justify-content: center;
     box-sizing: border-box;
     padding: 3% 0 0 0;
+    text-decoration: none;
 }
-#cartObtn > button {
+#cartObtn > a > button {
     width: 35%;
     height: 5vh;
     background-color: black;

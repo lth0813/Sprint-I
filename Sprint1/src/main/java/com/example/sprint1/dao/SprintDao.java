@@ -113,6 +113,11 @@ public class SprintDao {
         String sqlStmt = String.format("DELETE FROM purchase_history WHERE purchase_seq = '%s'", purchase_seq);
         jt.execute(sqlStmt);
     }
+    // 구매 완료 후 product 페이지에 띄우는 용도
+    public List<Map<String,Object>> selectPurchaseHistoryProduct(String id, String size) {
+        String sqlStmt = String.format("SELECT h.*, l.product_image, l.product_name, l.product_price FROM purchase_history h, tire_list l WHERE h.id = '%s' AND h.seq = l.seq ORDER BY h.purchase_seq DESC LIMIT %s;", id, size);
+        return jt.queryForList(sqlStmt);
+    }
 
 // 장바구니
     // 본인 장바구니 확인
@@ -133,6 +138,11 @@ public class SprintDao {
     // 장바구니 delete
     public void deleteCart(String cart_seq) {
         String sqlStmt = String.format("DELETE FROM cart WHERE cart_seq = '%s'", cart_seq);
+        jt.execute(sqlStmt);
+    }
+    // 구매완료 했을 때 장바구니 delete
+    public void deleteCartByPurchase(String id) {
+        String sqlStmt = String.format("DELETE FROM cart WHERE id = '%s'", id);
         jt.execute(sqlStmt);
     }
 

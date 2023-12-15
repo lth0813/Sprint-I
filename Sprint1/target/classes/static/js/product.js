@@ -37,6 +37,17 @@ if (checkmodal != null) {
     blur.style.opacity = "0.5";
 }}
 
+const cartmsg = document.querySelector(".cartmsg")
+if (cartmsg != null) {
+    const seqinput = document.querySelectorAll(".seqinput");
+    const qtyinput = document.querySelectorAll(".qtyinput");
+    for (let i = 0; i < seqinput.length; i++) {
+        seqinput[i].setAttribute("name","seq"+[i]);
+        qtyinput[i].setAttribute("name","qty"+[i]);
+    }
+}
+
+
 // 구매완료 모달창 닫기 버튼 //
 const close2 = document.querySelector("#buyOX > p");
 close2.addEventListener("click", function() {
@@ -86,6 +97,11 @@ const buyObtn = document.querySelector("#buyObtn");
 buyObtn.addEventListener("click", function() {
     location.href = "/main";
 });
+
+//
+
+
+
 
 
 // // 수량에따라 주문금액 표기 -> 총(주문금액)결제하기 표기

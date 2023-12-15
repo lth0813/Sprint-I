@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.sprint1.dao.SprintDao;
 
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 
-public class LoginController {
+public class LoginController extends HttpServlet {
     @Autowired
     SprintDao sprintDao;
     
@@ -172,7 +174,9 @@ public class LoginController {
     @GetMapping("/detail")
     public String Detail(
         @RequestParam("seq") String seq,
-        @RequestParam(name = "id",required = false) String id, 
+        @RequestParam(name = "id",required = false) String id,
+        @RequestParam(name = "modal",required = false) String modal,
+        @RequestParam(name = "qty",required = false) String qty,
         Model model) {
         if (id != null) {
             sprintDao.insertSearchHistory(seq, id);
@@ -185,7 +189,19 @@ public class LoginController {
         model.addAttribute("cnt", cnt);
         model.addAttribute("review", review);
         model.addAttribute("company", company);
+        model.addAttribute("modal", modal);
+        model.addAttribute("qty", qty);
         return "/html/detail";
+    }
+    @PostMapping("/detail")
+    public String DetailPost(
+        @RequestParam(name = "seq",required = false) String seq,
+        @RequestParam(name = "qty",required = false) String qty,
+        @RequestParam(name = "modal",required = false) String modal,
+        @RequestParam(name = "id",required = false) String id
+    ) {
+        sprintDao.insertCart(seq, id, qty);
+        return String.format("redirect:/detail?id=%s&seq=%s&modal=%s&qty=%s",id,seq,modal,qty);
     }
     
     @GetMapping("/cart")
@@ -353,27 +369,56 @@ public class LoginController {
         @RequestParam(name = "qty",required = false) String qty,
         @RequestParam(name = "detail",required = false) String detail,
         @RequestParam(name = "modal",required = false) String modal,
+        @RequestParam(name = "cart",required = false) String cart,
+        @RequestParam(name = "id",required = false) String id,
+        @RequestParam(name = "size",required = false) String size,
         Model model
     ) {
-        if (detail != null) {
+        if (size != null) {
+            List<Map<String,Object>> cartlist = sprintDao.selectPurchaseHistoryProduct(id, size);
+            model.addAttribute("cartlist", cartlist);
+            model.addAttribute("size",size);
+            model.addAttribute("modal", modal);
+        } else if (detail != null) {
             Map<String,Object> product = sprintDao.selectProduct(seq).get(0);
             model.addAttribute("detail",detail);
             model.addAttribute("qty",qty);
             model.addAttribute("product", product);
+            model.addAttribute("modal", modal);
+        } else if (cart != null) {
+            List<Map<String,Object>> cartlist = sprintDao.selectCart(id);
+            model.addAttribute("cartlist", cartlist);
+            model.addAttribute("cart", cart);
             model.addAttribute("modal", modal);
         }
         return "/html/product";
     }
 
     @PostMapping("/product")
-    public String productPost(
+    public String productPost (
         @RequestParam(name = "seq",required = false) String seq,
         @RequestParam(name = "qty",required = false) String qty,
         @RequestParam(name = "detail",required = false) String detail,
         @RequestParam(name = "modal",required = false) String modal,
-        @RequestParam(name = "id",required = true) String id
+        @RequestParam(name = "id",required = false) String id,
+        @RequestParam(name = "cartsize",required = false) String cartsize,
+        @RequestParam(name = "cart", required = false) String cart,
+        HttpServletRequest request
     ) {
-        sprintDao.insertPurchaseHistory(seq, id, qty);
-        return String.format("redirect:/product?seq=%s&qty=%s&detail=%s&modal=%s",seq,qty,detail,modal);
+        if (detail != null) {
+            sprintDao.insertPurchaseHistory(seq, id, qty);
+            return String.format("redirect:/product?seq=%s&qty=%s&detail=%s&modal=%s&size=%s",seq,qty,detail,modal,cartsize);
+        }
+        
+        if (cart != null) {
+            int cartsize1 = Integer.parseInt(cartsize);
+            for (int j = 0; j < cartsize1; j++) {
+                String cartseq = request.getParameter(String.format("seq%s",j));
+                String cartqty = request.getParameter(String.format("qty%s",j));
+                sprintDao.insertPurchaseHistory(cartseq, id, cartqty);
+                sprintDao.deleteCartByPurchase(id);
+            }
+        }
+        return String.format("redirect:/product?size=%s&modal=%s&id=%s",cartsize,modal,id );
     }
 }
