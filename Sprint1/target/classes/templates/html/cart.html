@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV TIRE MALL</title>
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="icon" href="./img/favicon.jpg" type="image/x-icon">
+</head>
+<body>
+    <div id="allWrap">
+        <header th:replace="html/HFM.html::header"></header>
+        
+        <main> <!-- main -->
+            <section id="cartSection"> <!-- cart 장바구니 -->
+                <div class="cartpart">장바구니</div><!-- 페이지 제목 -->
+                
+                <th:block th:if="${cart} != empty">
+                    <div class="cartInformation">
+                        총 [[${cart.size()}]]건의 내역이 있습니다. <!-- cart DB의 갯수 부탁드립니다. -->
+                    </div>
+                    
+                        <table class="cartList">
+                            <tr id="tablehead">  <!--장바구니 표의 head-->
+                                <th class="productdetail" colspan="2">상품정보</td>  <!--제품이미지와 상품명으로 2칸을 차지함-->
+                                <th class="unit_price">판매가</td>
+                                <th class="count">수량</td>
+                                <th class="price">총 주문금액</td>
+                                <th class="delete">상품삭제</td>
+                            </tr>
+                            <tr class="cartListDetail" th:each="cart : ${cart}"> <!--장바구니 표의 리스트-->
+                                <td class="productimage"><img th:src=" ${cart.product_image}"></td> <!--상품이미지를 db에서 불러와 주세요-->
+                                <td class="productname"><a href="#">[[${cart.product_name}]]</a></td><!--상품명을 db에서 불러와 주세요, 상품 상세페이지로 anchor부탁드립니다.-->
+                                <td class="unit_price" id="price">[[${cart.product_price}]]</td><!--상품단가을 db에서 불러와 주세요-->
+                                <td class="count" id="qty">[[${cart.qty}]]</td><!--상품수량을 db에서 불러와 주세요-->
+                                <td class="price" id="totalprice"></td><!--상품단가*상품수량을 값을 입력해주세요-->
+                                <td class="delete">
+                                    <form action="/cart" method="post">
+                                        <input type="hidden" name="cart_seq" th:value="${cart.cart_seq}">
+                                        <input type="hidden" name="id" th:value="${session.user.id}">
+                                        <button type="submit" class="deleteBtn">삭제하기</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    
+                        <div class="orderBtns">
+                            <a th:href="'/product?cart=O&id='+${session.user.id}"><button class="cartBigorderbtn">주문하기</button></a>
+                        </div>
+                    
+                </th:block>
+
+                <th:block th:if="${cart} == empty">
+                    <div class="cartInformation">
+                        현재 장바구니에 담긴 상품이 없습니다.
+                    </div>
+                </th:block>
+            </section>
+        </main>
+
+        <footer th:replace="html/HFM.html::footer"></footer>
+    </div>
+
+    <div id="checkBox" th:replace="html/HFM.html::modal"></div>
+    <script src="./js/cart.js"></script>
+</body>
+</html>
