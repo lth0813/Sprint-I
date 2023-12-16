@@ -1,8 +1,10 @@
+/**/
+
 html, body{
     margin:0 auto;
     width: 100vh;
     height: 100vh;
-    background:#a9b4c8;
+    background:black;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -16,16 +18,15 @@ html, body{
     align-items: center;
 }
 
-
+/*상단 evtiremall의 로고(움직임 효과 있음, 메인화면으로 링크 있음)*/
 img {
-    margin-top: 2vh;
+    margin-top: 5vh;
     width: 70vh;
     object-fit:cover;
     animation: fadein 3s;
     -webkit-animation: fadein 5s;
     animation-iteration-count:100;
 }
-
 @keyframes fadein {
     from {
         opacity: 0;
@@ -34,43 +35,34 @@ img {
         opacity: 1;
     }
 }
-
+/* 위아래 회색선 박스 */
 #wrapper-form{
-    margin-top: 3vh;
+    margin-top: 10vh;
     width: 70vh;
-    background-color: #595D64;
+    border-top:solid 5px grey;
+    border-bottom:solid 3px grey;
+    background-color: black;
     display: flex;
     align-items: center;
     flex-direction: column;
-    border-radius: 2vh;
-    margin-top:13vh;
 }
-
-#box_logo_main {
-    width: 70vh;
-    height: 15vh;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
 
 #box_pagename {
     margin-top: 1vh;
-    margin-bottom: 2vh;
-    margin-left: 5vh;
     width: 70vh;
     height: 5vh;
     display: flex;
     font-size: 3.3vh;
     color: white;
     font-weight: 600;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 #box_login {
+    margin-top: 3vh;
     width: 70vh;
     display: flex;
     align-items: center;
@@ -83,7 +75,7 @@ input {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 1.5vh;
+    margin-top: 2vh;
     height: 5.5vh;
     width: 60vh;
     font-weight: 700;
@@ -122,9 +114,9 @@ input:active {
 
 
 button{
-    margin-top: 2vh;
+    margin-top: 3vh;
     height: 8vh;
-    width: 60vh;
+    width: 60.5vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -151,7 +143,7 @@ button{
 }
 
 .w-btn-indigo {
-    background-color: #0F222D;
+    background-color: grey;
     color: white;
 }
 
@@ -195,7 +187,7 @@ button{
 }
 
 span{
-    color: #F55139;
+    color: gray;
     font-size: 3vh;
 }
 
@@ -205,7 +197,7 @@ span{
     justify-content: right;
     margin-top: 1vh;
     font-size: 2vh;
-    color: #EBE7D9;
+    color: gray;
     font-weight: 600;
 }
 
@@ -213,7 +205,7 @@ span{
     display: flex;
     width: 12vh;
     font-size: 2vh;
-    color: #F55139;
+    color: white;
     font-weight: 600;
     text-decoration: none;
     margin-left: 2vh;
@@ -238,7 +230,13 @@ span{
 
 
 .w-btn-indigo[disabled] {
-    background-color: #0f222db8;
+    background-color: gray;
     color: darkgrey;
     cursor: not-allowed;
+}
+
+
+/*findpwo.html에만 적용*/
+#findpwologin{
+    margin-bottom: 7vh;
 }

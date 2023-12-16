@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EV TIRE MALL</title>
-    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="./css/detail.css">
     <link rel="icon" href="./img/favicon.jpg" type="image/x-icon">
 </head>
 <body>
+    <th:block th:if="${modal} != null">
+        <div class="modal">[[${modal}]]</div>
+    </th:block>
     <div id="allWrap">
         <header th:replace="html/HFM.html::header"></header>
         
         <main>
             <div class="main-wrapper"> 
                 <div class="main-header">
-                    <h2>상세 검색</h2>
+                    <div>제품찾기</div>
+                    <div>장바구니</div>
+                    <div>마이페이지</div>
                 </div>
                 <div class="main">
                     <div class="main-content">
@@ -34,8 +39,24 @@
                                 </div>
                             </div>
                             <div class="totalprice">총 상품금액&nbsp; <span class="price">0</span>원</div>
-                            <button type="button" class="cart">장바구니</button>
-                            <button type="button" class="purchase">구매하기</button>
+                            <th:block th:if="${session.user} != null">
+                                <input class="userid" type="hidden" th:value="${session.user.id}">
+                            </th:block>
+                            <form action="/detail" method="post">
+                                <input type="hidden" th:value="${product.seq}" name="seq">
+                                <input class="product_qty" type="hidden" name="qty">
+                                <input type="hidden" value="O" name="modal">
+                                <th:block th:if="${session.user} != null">
+                                    <input type="hidden" th:value="${session.user.id}" name="id">
+                                </th:block>
+                                <button type="submit" class="cart">장바구니</button>
+                            </form>
+                            <form action="/product" method="get">
+                                <input type="hidden" th:value="${product.seq}" name="seq">
+                                <input class="product_qty" type="hidden" name="qty">
+                                <input type="hidden" value="O" name="detail">
+                                <button type="submit" class="purchase">구매하기</button>
+                            </form>
                         </div>
                     </div>
                     <div class="main-spec">
@@ -153,43 +174,46 @@
         <footer th:replace="html/HFM.html::footer"></footer>
     </div>
     <div id="checkBox" th:replace="html/HFM.html::modal"></div>
+    
+    <!-- 장바구니에 상품 담기 완료 모달 -->
+    <th:block th:if="${session.user} != null">
+        <div id="cartO"> 
+            <div id="cartOX">
+                <p>&#215;</p>
+            </div>
+            <div id="cartOWrap">
+                <div id="cartOTitle"> 
+                    <div id="cartOTitleWrap"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
+                            <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                        </svg>
+                        <p>장바구니에 담기 완료</p>
+                    </div>
+                </div>
+                <div id="cartOGoods"> 
+                    <div id="cartOGoodsWrap"> 
+                        <div id="cartOGoodsImg">
+                            <img th:src="${product.product_image}">
+                        </div>
+                        <div id="cartOGoodsDetail"> 
+                            <p>상품명 :&nbsp;[[${product.product_name}]]</p>
+                            <p>가격 :&nbsp;<span class=cartprice>[[${product.product_price}]]</span></p>
+                            <th:block th:if="${qty} != null">
+                                <p>수량 :&nbsp;<span class="cartqty">[[${qty}]]</span></p>
+                            </th:block>
+                            <p>총 금액 :&nbsp;<span class=carttotalprice></span>원</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="cartObtn"> 
+                    <a th:href="'/cart?id='+${session.user.id}"><button type="submit">장바구니로 이동</button></a>
+                </div>
+            </div>
+        </div>
+    </th:block>
+
 
     <script src="./js/detail.js"></script>
 </body>
-<script>
-    const minus = document.querySelector(".qtyminus");
-    const plus = document.querySelector(".qtyplus");
-    const qty = document.querySelector(".qty");
-    const product_price = parseInt(document.querySelector(".product_price").innerHTML.replace(/,/g,''))
-    const price = document.querySelector(".price")
-    minus.addEventListener("click",() => {
-        if (parseInt(qty.innerHTML) == 0) {
-            qty.innerHTML = 0;
-        }
-        else {
-            qty.innerHTML -= 1;
-            price.innerHTML = parseInt(qty.innerHTML) * product_price;
-        }
-    })
-    plus.addEventListener("click",() => {
-        qty.innerHTML = parseInt(qty.innerHTML) +1;
-        price.innerHTML = parseInt(qty.innerHTML) * product_price;
-    })
-
-    const cartinsert = document.querySelector(".cart");
-    cartinsert.addEventListener("click",() => {
-        if(parseInt(qty.innerHTML)<1){
-            alert("수량을 선택해주세요");
-            return false;
-        };
-    });
-
-    const orderinsert = document.querySelector(".purchase");
-    orderinsert.addEventListener("click",() => {
-        if(parseInt(qty.innerHTML)<1){
-            alert("수량을 선택해주세요");
-            return false;
-        };
-    });
-</script>
 </html>

@@ -26,7 +26,8 @@
                 <div id="modify">
                     <div class="sectiontitle">회원정보수정</div><!-- 회원정보수정section제목 -->
                     <div id="sectionBox">
-                        <form method="post">
+                        <form action="/mypage" method="post">
+                            <input type="hidden" name="id" th:value="${session.user.id}">
                             <span id="inputboxname">비밀번호</span>
                             <input type="password" name="pw"  placeholder="Your Password"  autocomplete="off">
                             <span id="inputboxname">이름</span>
@@ -91,16 +92,16 @@
                         <th:block th:if="${review.size()} != 0">
                             <tr id="myreviewtablehead">  
                                 <th class="myreviewtableorderdetail" colspan="2">상품정보</th> 
-                                <th class="myreviewtableorderdate">주문일자</th>
                                 <th class="myreviewtableprice">리뷰 내용</th>
+                                <th class="myreviewtableorderdate">작성일자</th>
                                 <th class="myreviewtableinsert">리뷰 삭제</th>
                             </tr>
                 
                             <tr class="orderListDetail" th:each="review : ${review}"> 
                                 <td class="myreviewtableimage"><img th:src="${review.product_image}" class="img"></td> 
                                 <td class="myreviewtablename"><a th:href="'/detail?seq='+${review.seq}+'&id='+${session.user.id}">[[${review.product_name}]]</a></td>
-                                <td class="myreviewtabledate">[[${review.purchase_date}]]</td>
                                 <td class="myreviewtablereviewcontent">[[${review.content}]]</td>
+                                <td class="myreviewtabledate">[[${review.date}]]</td>
                                 <td class="myreviewtableinsert">
                                     <form method="post">
                                         <input type="hidden" th:value="${review.review_seq}" name="review_seq">
