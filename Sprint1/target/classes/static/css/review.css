@@ -308,7 +308,7 @@ footer {
     border-radius: 1vh;
     /* box-shadow: 0 0.1vh 1vh rgba(255, 255, 255, 0.643); */
     text-decoration: none;
-    font-weight: 540;
+    font-weight: bold;
     transition: 0.25s;
     background-color: gray;
     color: white;

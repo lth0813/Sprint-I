@@ -6,9 +6,39 @@
 //     });
 
 
-function modifybtn(){
-    alert('회원정보가 정상적으로 수정되었습니다.');
-};
+document.addEventListener('DOMContentLoaded', () => {
+    function modifybtn(e){
+        // 회원정보 수정 공백 처리 //
+        const form = document.querySelector(".form");
+        const pw = document.querySelector(".pwInput");
+        const names = document.querySelector(".nameInput");
+        const email = document.querySelector(".emailInput");
+        const phonenum = document.querySelector(".phonenumInput")
+        if (pw.value == "") {
+            alert("비밀번호를 입력해주세요");
+            e.preventDefault();
+            pw.focus();
+        } else if (names.value == "") {
+            alert("이름을 입력해주세요");
+            e.preventDefault();
+            names.focus();
+        } else if (phonenum.value =="") {
+            alert("전화번호를 입력해주세요");
+            e.preventDefault();
+            phonenum.focus();
+        } else if (email.value == "") {
+            alert("이메일 주소를 입력해주세요");
+            e.preventDefault();
+            email.focus();
+        } else {
+            alert('회원정보가 정상적으로 수정되었습니다.');
+        }
+    };
+    const modifybutton = document.querySelector("#modifyButton")
+    modifybutton.addEventListener("click", modifybtn)
+})
+
+
 
 function orderdeletebtn(){
     alert('리뷰가 정상적으로 삭제되었습니다.');

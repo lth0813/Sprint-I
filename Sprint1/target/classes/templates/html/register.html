@@ -24,10 +24,10 @@
                     </div>
                     <div id="idUnavailable" style="display: none;">사용가능한 아이디입니다.</div>
                     <div id="idAvailable" style="display: none;">이미 사용중인 아이디입니다.</div>
-                    <input type="password" name="pw"  placeholder="  Your Password"  autocomplete="off">
-                    <input type="text" name="name"  placeholder="  Your full Name"  autocomplete="off">
-                    <input type="text" name="phonenum"  placeholder="  Your Phone Number"  autocomplete="off">
-                    <input type="text" name="email"  placeholder="  Your e-mail"  autocomplete="off">
+                    <input type="password" name="pw"  placeholder="  Your Password"  autocomplete="off" id="pwInput">
+                    <input type="text" name="name"  placeholder="  Your full Name"  autocomplete="off" id="nameInput">
+                    <input type="text" name="phonenum"  placeholder="  Your Phone Number"  autocomplete="off" id="phonenumInput">
+                    <input type="text" name="email"  placeholder="  Your e-mail"  autocomplete="off" id="emailInput">
                     <button class="w-btn w-btn-indigo" type="submit" id="registerButton" disabled>회원가입</button>
                 </form>
             </div>
@@ -48,30 +48,66 @@
     </div>
 </body>
 <script>
-    function checkDuplicate() {
-        var id = $("#idInput").val();
+    const form = document.querySelector("#registerForm");
+    const idcheck = document.querySelector("#idInput");
+    const pw = document.querySelector("#pwInput");
+    const names = document.querySelector("#nameInput");
+    const email = document.querySelector("#emailInput");
+    const phonenum = document.querySelector("#phonenumInput")
+    form.addEventListener('submit', (e) => {
+        if (idcheck.value == "") {
+            alert("아이디를 입력해주세요");
+            e.preventDefault();
+            idcheck.focus();
+        } else if (pw.value == "") {
+            alert("비밀번호를 입력해주세요");
+            e.preventDefault();
+            pw.focus();
+        } else if (names.value == "") {
+            alert("이름을 입력해주세요");
+            e.preventDefault();
+            names.focus();
+        } else if (phonenum.value =="") {
+            alert("전화번호를 입력해주세요");
+            e.preventDefault();
+            phonenum.focus();
+        } else if (email.value == "") {
+            alert("이메일 주소를 입력해주세요");
+            e.preventDefault();
+            email.focus();
+        } 
+    })
 
-        $.ajax({
-            url: "/check-duplicate",
-            type: "GET",
-            data: { "id": id },
-            success: function (result) {
-                if (result) {
-                    $("#idAvailable").show();
-                    $("#idUnavailable").hide();
-                    // 중복되면 버튼을 비활성화
-                    $("#registerButton").prop("disabled", true);
-                } else {
-                    $("#idAvailable").hide();
-                    $("#idUnavailable").show();
-                    // 중복이 아니면 버튼을 활성화
-                    $("#registerButton").prop("disabled", false);
+    function checkDuplicate() {
+        if (idcheck.value != "") {
+            var id = $("#idInput").val();
+
+            $.ajax({
+                url: "/check-duplicate",
+                type: "GET",
+                data: { "id": id },
+                success: function (result) {
+                    if (result) {
+                        $("#idAvailable").show();
+                        $("#idUnavailable").hide();
+                        // 중복되면 버튼을 비활성화
+                        $("#registerButton").prop("disabled", true);
+                    } else {
+                        $("#idAvailable").hide();
+                        $("#idUnavailable").show();
+                        // 중복이 아니면 버튼을 활성화
+                        $("#registerButton").prop("disabled", false);
+                    }
+                },
+                error: function (error) {
+                    console.error("Error checking duplicate: " + error);
                 }
-            },
-            error: function (error) {
-                console.error("Error checking duplicate: " + error);
-            }
-        });
+            })
+        } else {
+            alert("아이디를 입력해주세요");
+            idcheck.focus();
+        }
     }
+
 </script>
 </html>

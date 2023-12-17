@@ -16,7 +16,16 @@ public class detailDao {
         String sqlStmt = String.format("INSERT INTO search_history(seq, id) VALUES ('%s', '%s')", seq, id);
         jt.execute(sqlStmt);
     }
-
+    // 중복 방지를 위한 해당 상품의 검색 이력 조회
+    public List<Map<String,Object>> selectSearchHistoryBySeq(String id, String seq) {
+        String sqlStmt = String.format("SELECT * FROM search_history WHERE id = '%s' AND seq = '%s'", id, seq);
+        return jt.queryForList(sqlStmt);
+    }
+    // 최신화를 위해 전의 검색 이력을 삭제
+    public void deleteSearchHistoryBySeq(String id, String seq) {
+        String sqlStmt = String.format("DELETE FROM search_history WHERE id = '%s' AND seq = '%s'", id, seq);
+        jt.execute(sqlStmt);
+    }
     // 단일 상품 조회
     public List<Map<String,Object>> selectProduct(String seq) {
         String sqlStmt = String.format("SELECT * FROM tire_list WHERE seq = '%s'", seq);

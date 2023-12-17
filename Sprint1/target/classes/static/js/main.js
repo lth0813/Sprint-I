@@ -81,7 +81,9 @@ mypage.addEventListener("click", function() {
 
 // 로그아웃 //
 const logout = document.querySelector("#logout");
-logout.addEventListener("click", function() {
-    const form = document.forms.logout;
-    form.submit();
-});
+if (login == null) {
+    logout.addEventListener("click", function() {
+        const form = document.forms.logout;
+        form.submit();
+    });
+}

@@ -40,9 +40,18 @@ mypage.addEventListener("click", function() {
     }
 });
 
+const soldout = document.querySelectorAll("#tirecost")
+for (let i = 0; i < soldout.length; i++) {
+    if (soldout[i].innerText == "일시 품절원") {
+        soldout[i].innerHTML = "일시 품절"
+    }
+}
+
 // 로그아웃 //
 const logout = document.querySelector("#logout");
+if (login == null) {
 logout.addEventListener("click", function() {
     const form = document.forms.logout;
     form.submit();
 });
+}

@@ -16,9 +16,9 @@
             <div id="box_pagename">로그인</div>
     
             <div id="box_login">
-                <form th:action="@{/login}" method="post">
-                    <input type="text" name="id"  placeholder="  Your ID"  autocomplete="off">
-                    <input type="password" name="pw"  placeholder="  Your Password"  autocomplete="off">
+                <form th:action="@{/login}" method="post" id="registerForm">
+                    <input type="text" name="id"  placeholder="  Your ID"  autocomplete="off" class="idInput">
+                    <input type="password" name="pw"  placeholder="  Your Password"  autocomplete="off" class="pwInput">
                     
                     <div th:if="${error}">
                         <div id="message">아이디 또는 비밀번호를 잘못 입력했습니다.<br> 입력하신 내용을 다시 확인해주세요.</div>
@@ -43,4 +43,20 @@
 
     </div>
 </body>
+<script>
+    const form = document.querySelector("#registerForm");
+    const idcheck = document.querySelector(".idInput");
+    const pw = document.querySelector(".pwInput");
+    form.addEventListener('submit', (e) => {
+        if (idcheck.value == "") {
+            alert("아이디를 입력해주세요");
+            e.preventDefault();
+            idcheck.focus();
+        } else if (pw.value == "") {
+            alert("비밀번호를 입력해주세요");
+            e.preventDefault();
+            pw.focus();
+        }
+    })
+</script>
 </html>

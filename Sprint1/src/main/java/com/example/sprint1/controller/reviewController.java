@@ -36,6 +36,6 @@ public class reviewController {
         @RequestParam("content") String content
     ) {
         reviewdao.insertReview(seq, id, content);
-        return "redirect:/mypage?id="+id;
+        return "redirect:/mypage?id="+id+"#jumpingboxmyreview";
     }
 }

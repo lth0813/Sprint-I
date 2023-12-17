@@ -54,9 +54,11 @@ public class mypageController {
         }
         if (review_seq != null) {
             mypagedao.deleteReview(review_seq);
+            return "redirect:/mypage?id="+id+"#jumpingboxmyreview";
         }
         if (search_seq != null) {
             mypagedao.deleteSearchHistory(search_seq);
+            return "redirect:/mypage?id="+id+"#jumpingboxmysearch";
         }
         return "redirect:/mypage?id="+id;
     }

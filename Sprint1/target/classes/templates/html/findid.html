@@ -16,10 +16,10 @@
             <div id="box_pagename">아이디 찾기</div>
     
             <div id="box_login">
-                <form th:action="@{/findid}" method="post">
-                    <input type="text" name="name"  placeholder="  Your full Name"  autocomplete="off">
-                    <input type="text" name="phonenum"  placeholder="  Your Phone Number"  autocomplete="off">
-                    <input type="text" name="email"  placeholder="  Your e-mail"  autocomplete="off">
+                <form th:action="@{/findid}" method="post" class="form">
+                    <input type="text" name="name"  placeholder="  Your full Name"  autocomplete="off" class="nameInput">
+                    <input type="text" name="phonenum"  placeholder="  Your Phone Number"  autocomplete="off" class="phonenumInput">
+                    <input type="text" name="email"  placeholder="  Your e-mail"  autocomplete="off" class="emailInput">
                     
                     <div th:if="${error}">
                         <div id="message">본인 확인에 실패하였습니다.<br>입력하신 내용을 다시 확인해주세요.</div>
@@ -44,4 +44,25 @@
 
     </div>
 </body>
+<script>
+    const form = document.querySelector(".form");
+    const names = document.querySelector(".nameInput");
+    const email = document.querySelector(".emailInput");
+    const phonenum = document.querySelector(".phonenumInput")
+    form.addEventListener('submit', (e) => {
+        if (names.value == "") {
+            alert("이름을 입력해주세요");
+            e.preventDefault();
+            names.focus();
+        } else if (phonenum.value =="") {
+            alert("전화번호를 입력해주세요");
+            e.preventDefault();
+            phonenum.focus();
+        } else if (email.value == "") {
+            alert("이메일 주소를 입력해주세요");
+            e.preventDefault();
+            email.focus();
+        } 
+    })
+</script>
 </html>
