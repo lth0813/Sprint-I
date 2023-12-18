@@ -98,8 +98,26 @@ buyObtn.addEventListener("click", function() {
     location.href = "/main";
 });
 
-//
+// 주소 입력 //
+const adrtable = document.querySelector("#addadrtable")
+const address = document.querySelector(".addadrinput")
+const addressname = document.querySelector(".adressname")
+const insbtn = document.querySelector(".adrinsbtn")
+const modbtn = document.querySelector(".adrmodbtn")
 
+insbtn.addEventListener("click",(e) => {
+    if (address.value == "") {
+        alert("주소를 입력해주세요");
+        e.preventDefault();
+        address.focus();
+    } else {
+    addressname.innerHTML = address.value;
+    adrtable.style.display = "none";
+    }
+})
+modbtn.addEventListener("click",() => {
+    adrtable.style.display = "table";
+})
 
 
 

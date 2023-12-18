@@ -57,8 +57,8 @@ logout.addEventListener("click", function() {
 // 총 주문금액
 const cartlist = document.querySelectorAll(".cartListDetail");
 for (let i = 0; i < cartlist.length; i++) {
-    const price = document.querySelectorAll("#price");
-    const qty = document.querySelectorAll("#qty");
-    const totalprice = document.querySelectorAll("#totalprice");
+    const price = document.querySelectorAll(".cartListDetail #price");
+    const qty = document.querySelectorAll(".cartListDetail #qty");
+    const totalprice = document.querySelectorAll(".cartListDetail #totalprice");
     totalprice[i].innerHTML = parseInt(price[i].innerHTML.replace(/,/g,'')) * parseInt(qty[i].innerHTML) + "원";
 }

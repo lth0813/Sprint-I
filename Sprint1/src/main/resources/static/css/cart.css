@@ -181,7 +181,85 @@ main {
     align-items: center;
     justify-content: center;
 }
+.allList {
+    display: flex;
+    flex-direction: row;
+}
+.cartList, .cartheader {
+    display:flex;
+    flex-direction: column;
+    border:1px solid gray;
+    color: white;
+    background-color: gray;
+    font-weight: bold;
+    font-size:15px;
+    margin-top:20px;
+    position: relative;
+}
+.cartListDetail, .cartheaderDetail {
+    display:flex;
+    flex-direction: column;
+    border:1px solid gray;
+    color: lightgray;
+    margin-right :5px;
+    margin-top:20px;
+    position: relative;
+}
+.cartheader, .cartheaderDetail {
+    margin: 0 auto;
+    border-bottom: none;
+    position: sticky;
+    top: 12vh;
+    z-index: 1;
+}
+.cartheader {
+    background-color: gray;
+}
+.cartheaderDetail {
+    background-color: black;
+}
+.cartList div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid black;
+    width:150px;
+    min-height:30px;
+}
 
+.cartListDetail div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid gray;
+    width:200px;
+    min-height:30px;
+}
+.product_image {
+    height:150px;
+}
+.product_image > img {
+    width:150px;
+    height:150px;
+}
+.product_name {
+    height:100px;
+}
+.recommend {
+    height:60px;
+}
+.delete {
+    height:60px;
+}
+
+#cartSection {
+    width: 100%;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .cartpart{
     width: 99vh;
     font-size: 3vh;
@@ -190,7 +268,6 @@ main {
     background-color: black;
     margin-bottom: 1vh;
 }
-
 .cartInformation{
     width: 99vh;
     font-size: 2vh;
@@ -200,69 +277,6 @@ main {
     margin-bottom: 1vh;
 }
 
-table {
-    border-bottom: solid 0.5vh gray;
-    width: 100vh;
-    font-size: 2vh;
-  }
-
-#tablehead{
-    background-color: gray;
-    color: white;
-    text-align: center;
-}
-
-td{
-    border-top: 0.1vh solid gray;
-}
-
-
-
-.productdetail{
-    width: 50vh;
-}
-
-.productimage{
-    width: 15vh;
-}
-
-.productname{
-    width: 30vh;
-    padding-left:10px;
-}
-
-.productname > a{
-    text-decoration-line: none;
-    color: darkgrey ;
-}
-
-img{
-    width: 15vh;
-    height: 15vh;
-    margin: 0;
-}
-
-.unit_price{
-    width: 10vh;
-    text-align: center;
-    border-left: 0.1vh solid gray;
-}
-
-.count{
-    width: 8vh;
-    border-left: 0.1vh solid gray;
-    text-align: center;
-}
-
-.price{
-    width: 15vh;
-    border-left: 0.1vh solid gray;
-    text-align: center;
-}
-.delete{
-    border-left: 0.1vh solid gray;
-    text-align: center;
-}
 
 
 footer {

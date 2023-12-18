@@ -20,18 +20,35 @@
         <section id="cartSection"> <!-- 배송정보 -->
             <div class="cartpart">배송정보</div><!-- 배송 제목 -->
             <div class="cartInformation">
+        <table class="deliverytable" id="addadrtable">
+            <tr class="adress">
+                <th class="adresstable">주소 입력</th>
+                <td class="addadr"><textarea class="addadrinput"></textarea></td>
+                <td class="addadrbtns">
+                    <div class="addadrbtn">
+                        <div><button class="adrinsbtn">등록</button></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br>
         <table class="deliverytable">
             <tr class="adress">
                 <th class="adresstable">주소</th>
                 <td class="adressname">배송지를 입력해주세요.</td>
+                <td class="addadrbtns">
+                    <div class="addadrbtn">
+                        <div><button class="adrmodbtn">수정</button></div>
+                    </div>
+                </td>
             </tr>
             <tr class="name">
                 <th class="nametable">이름</th>
-                <td class="namepart">[[${session.user.name}]]</td>
+                <td class="namepart" colspan="2">[[${session.user.name}]]</td>
             </tr>
             <tr class="number">
                 <th class="numberclass">연락처</th>
-                <td class="numbername">[[${session.user.phonenumber}]]</td>
+                <td class="numbername" colspan="2">[[${session.user.phonenumber}]]</td>
             </tr>
         </table>
         <br>
