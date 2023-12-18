@@ -13,6 +13,13 @@ modalButton.addEventListener("click", function() {
     blur.style.opacity = "0.5";
 });
 
+// 상세검색 모달창 닫기 버튼 //
+const close = document.querySelector("#checkBoxX > p");
+close.addEventListener("click", function() {
+    modal.style.display = "none";
+    blur.style.opacity = "1";
+});
+
 // 로그인, 장바구니, 마이페이지를 클릭하면 해당 페이지로 이동 //
 // + 로그인 안했을때 장바구니, 마이페이지를 클릭하면 alert //
 const login = document.querySelector("#login");
