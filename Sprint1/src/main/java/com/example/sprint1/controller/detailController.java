@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.sprint1.dao.detailDao;
-import com.example.sprint1.dao.mypageDao;
 
 @Controller
 public class detailController {
