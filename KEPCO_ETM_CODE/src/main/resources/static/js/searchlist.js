@@ -1,7 +1,7 @@
 // 로고를 누르면 main으로 이동 //
 const logo = document.querySelector("#logo > img");
 logo.addEventListener("click", function() {
-    location.href="http://localhost/main";
+    location.href="/main";
 });
 
 // 상세검색을 누르면 상세검색 모달창 띄우기 //
