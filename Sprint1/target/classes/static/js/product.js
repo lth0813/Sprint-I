@@ -47,14 +47,6 @@ if (cartmsg != null) {
     }
 }
 
-
-// 구매완료 모달창 닫기 버튼 //
-const close2 = document.querySelector("#buyOX > p");
-close2.addEventListener("click", function() {
-    modal2.style.display = "none";
-    blur.style.opacity = "1";
-});
-
 // 로그인, 장바구니, 마이페이지를 클릭하면 해당 페이지로 이동 //
 // + 로그인 안했을때 장바구니, 마이페이지를 클릭하면 alert //
 const login = document.querySelector("#login");
@@ -118,7 +110,13 @@ insbtn.addEventListener("click",(e) => {
 modbtn.addEventListener("click",() => {
     adrtable.style.display = "table";
 })
-
+const orderbutton = document.querySelector(".orderbuttons")
+orderbutton.addEventListener("submit",(e) => {
+    if (addressname.innerHTML == "배송지를 입력해주세요.") {
+        alert("주소를 입력해주세요");
+        e.preventDefault();
+    }
+})
 
 
 
